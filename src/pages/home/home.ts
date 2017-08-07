@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/observable';
 
 import { HymnPage } from '../hymn/hymn';
 import { Hymn } from '../../app/hymn';
+import { EditHymnPage } from '../edit-hymn/edit-hymn';
 
 @Component({
   selector: 'page-home',
@@ -25,7 +26,11 @@ export class HomePage {
     });
   }
 
-  nav(hymn: Hymn) {
+  newHymn() {
+    this.navCtrl.push(EditHymnPage);
+  }
+
+  viewHymn(hymn: Hymn) {
     this.navCtrl.push(HymnPage, hymn);
   }
 

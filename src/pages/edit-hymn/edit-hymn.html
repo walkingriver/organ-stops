@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>New Hymn</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label>Number</ion-label>
+      <ion-input type="number" name="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Title</ion-label>
+      <ion-input type="text" name="title"></ion-input>
+    </ion-item>
+
+    <ion-list>
+      <ion-item (click)="displayStops(hymn.pedal)">
+        <h2>Pedal</h2>
+      </ion-item>
+      <ion-item (click)="displayStops(hymn.swell)">
+        <h2>Swell</h2>
+      </ion-item>
+      <ion-item (click)="displayStops(hymn.great)">
+        <h2>Great</h2>
+      </ion-item>
+      <ion-item (click)="displayStops(hymn.general)">
+        <h2>General</h2>
+      </ion-item>
+    </ion-list>
+
+    <button ion-button type="submit"></button>
+  </form>
+
+</ion-content>

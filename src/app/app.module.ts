@@ -1,4 +1,5 @@
 import { NgModule, ErrorHandler } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -13,6 +14,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { HymnPage } from '../pages/hymn/hymn';
 import { StopsPage } from '../pages/stops/stops';
+import { EditHymnPage } from '../pages/edit-hymn/edit-hymn';
 
 import config from './config';
 
@@ -24,13 +26,16 @@ import config from './config';
     HomePage,
     TabsPage,
     HymnPage,
-    StopsPage
+    StopsPage,
+    EditHymnPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,7 +45,8 @@ import config from './config';
     HomePage,
     TabsPage,
     HymnPage,
-    StopsPage
+    StopsPage,
+    EditHymnPage
   ],
   providers: [
     StatusBar,

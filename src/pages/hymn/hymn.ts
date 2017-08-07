@@ -1,19 +1,14 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import { Hymn } from '../../app/hymn';
 
-/**
- * Generated class for the HymnPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-hymn',
   templateUrl: 'hymn.html',
 })
 export class HymnPage {
-  hymn;
+  hymn: Hymn;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.hymn = navParams.data;

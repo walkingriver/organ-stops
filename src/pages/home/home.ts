@@ -1,23 +1,24 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { HymnPage } from "../hymn/hymn";
+import { HymnPage } from '../hymn/hymn';
+import { Hymn } from '../../app/hymn';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  hymns = [
-    { number: 1, title: 'First Hymn' },
-    { number: 2, title: 'Second Hymn' },
-    { number: 3, title: 'Third Hymn' }
+  hymns: Hymn[] = [
+    { number: 1, title: 'First Hymn', pedal: {}, swell: {}, great: {}, general: {} },
+    { number: 2, title: 'Second Hymn', pedal: {}, swell: {}, great: {}, general: {} },
+    { number: 3, title: 'Third Hymn', pedal: {}, swell: {}, great: {}, general: {} }
   ];
 
   constructor(public navCtrl: NavController) {
 
   }
 
-  nav(hymn) {
+  nav(hymn: Hymn) {
     this.navCtrl.push(HymnPage, hymn);
   }
 

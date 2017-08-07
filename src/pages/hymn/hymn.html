@@ -1,19 +1,24 @@
-<!--
-  Generated template for the HymnPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
     <ion-title>{{hymn.title}}</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
   <p>Number: {{hymn.number}}</p>
   <p>Title: {{hymn.title}}</p>
+  <ion-list>
+    <ion-item (click)="displayStops(hymn.pedal)">
+      <h2>Pedal</h2>
+    </ion-item>
+    <ion-item (click)="displayStops(hymn.swell)">
+      <h2>Swell</h2>
+    </ion-item>
+    <ion-item (click)="displayStops(hymn.great)">
+      <h2>Great</h2>
+    </ion-item>
+    <ion-item (click)="displayStops(hymn.general)">
+      <h2>General</h2>
+    </ion-item>
+  </ion-list>
 </ion-content>

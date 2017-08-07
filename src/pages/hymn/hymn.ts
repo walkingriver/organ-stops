@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Hymn } from '../../app/hymn';
-
+import { OrganStops } from '../../app/organ-stops';
+import { StopsPage } from '../stops/stops';
 
 @Component({
   selector: 'page-hymn',
@@ -14,8 +15,7 @@ export class HymnPage {
     this.hymn = navParams.data;
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HymnPage');
+  displayStops(stops: OrganStops) {
+    this.navCtrl.push(StopsPage, stops);
   }
-
 }

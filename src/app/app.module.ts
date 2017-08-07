@@ -14,7 +14,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { HymnPage } from '../pages/hymn/hymn';
 import { StopsPage } from '../pages/stops/stops';
-import { EditHymnPage } from '../pages/edit-hymn/edit-hymn';
+import { CreateHymnPage } from '../pages/create-hymn/create-hymn';
 
 import config from './config';
 
@@ -27,7 +27,7 @@ import config from './config';
     TabsPage,
     HymnPage,
     StopsPage,
-    EditHymnPage
+    CreateHymnPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +46,7 @@ import config from './config';
     TabsPage,
     HymnPage,
     StopsPage,
-    EditHymnPage
+    CreateHymnPage
   ],
   providers: [
     StatusBar,

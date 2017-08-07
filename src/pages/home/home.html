@@ -6,7 +6,7 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let hymn of hymns">
+    <ion-item *ngFor="let hymn of hymns" (click)="nav(hymn)">
       <h2>{{hymn.number}}. {{hymn.title}}</h2>
     </ion-item>
   </ion-list>

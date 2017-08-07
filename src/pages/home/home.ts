@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { HymnPage } from "../hymn/hymn";
 
 @Component({
   selector: 'page-home',
@@ -14,6 +15,10 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {
 
+  }
+
+  nav(hymn) {
+    this.navCtrl.push(HymnPage, hymn);
   }
 
 }

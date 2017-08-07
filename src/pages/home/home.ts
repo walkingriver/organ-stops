@@ -9,7 +9,7 @@ import { Hymn } from '../../app/hymn';
 })
 export class HomePage {
   hymns: Hymn[] = [
-    { number: 1, title: 'First Hymn', pedal: {
+    { number: 1, title: 'The Morning Breaks', pedal: {
       'Contra Violone 32': true,
       'Diapason 16': false,
       'Bourdon 16': false,
@@ -58,8 +58,8 @@ export class HomePage {
       'Melody Coupler': false,
       'Alternate Tuning': false
     } },
-    { number: 2, title: 'Second Hymn', pedal: {}, swell: {}, great: {}, general: {} },
-    { number: 3, title: 'Third Hymn', pedal: {}, swell: {}, great: {}, general: {} }
+    { number: 2, title: 'The Spirit of God', pedal: {}, swell: {}, great: {}, general: {} },
+    { number: 3, title: 'Now Let Us Rejoice', pedal: {}, swell: {}, great: {}, general: {} }
   ];
 
   constructor(public navCtrl: NavController) {

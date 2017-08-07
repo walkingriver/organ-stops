@@ -1,12 +1,11 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{hymn.title}}</ion-title>
+    <ion-title>Summary</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <p>Number: {{hymn.number}}</p>
-  <p>Title: {{hymn.title}}</p>
+  <h2>{{ hymn.number }}. {{ hymn.title }}</h2>
   <ion-list>
     <ion-item (click)="displayStops(hymn.pedal)">
       <h2>Pedal</h2>

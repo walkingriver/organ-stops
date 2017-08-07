@@ -2,6 +2,19 @@
   <ion-navbar>
     <ion-title>Home</ion-title>
   </ion-navbar>
+
+  <ion-toolbar>
+    <div padding>
+      <ion-segment (ionChange)="sortBy($event.value)" [(ngModel)]="sort">
+        <ion-segment-button value="number">
+          Number
+        </ion-segment-button>
+        <ion-segment-button value="title">
+          Title
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>

@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 
 import { Hymn } from '../../app/hymn';
 import * as defaults from '../../app/defaults';
+import { OrganStops } from '../../app/organ-stops';
+import { StopsPage } from '../stops/stops';
 
 @Component({
   selector: 'page-create-hymn',
@@ -14,14 +16,19 @@ export class CreateHymnPage {
   hymn: Hymn;
   form: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fb: FormBuilder) {
+  constructor(public modal: ModalController, public navParams: NavParams, private fb: FormBuilder) {
     this.form = fb.group({
-      number: [0, [Validators.required, CustomValidators.min(1)]],
+      number: ['', [Validators.required, CustomValidators.min(1)]],
       title: ['', Validators.required],
       pedal: defaults.pedal,
       swell: defaults.swell,
       great: defaults.great,
       general: defaults.general
     });
+  }
+
+  displayStops(stops: OrganStops) {
+    const modal = this.modal.create(StopsPage, stops);
+    modal.present();
   }
 }

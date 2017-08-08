@@ -12,7 +12,10 @@ export class StopsPage {
 
   constructor(public viewCtrl: ViewController, public navParams: NavParams) {
     this.stops = Object.assign({}, navParams.data);
-    this.stopNames = Object.keys(this.stops).filter(key => key !== 'component' && key !== 'opts');
+    delete this.stops.component;
+    delete this.stops.opts;
+
+    this.stopNames = Object.keys(this.stops);
   }
 
   cancel() {

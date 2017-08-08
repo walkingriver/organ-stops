@@ -13,7 +13,6 @@ import { StopsPage } from '../stops/stops';
   templateUrl: 'create-hymn.html',
 })
 export class CreateHymnPage {
-  hymn: Hymn;
   form: FormGroup;
 
   constructor(public modal: ModalController, public navParams: NavParams, private fb: FormBuilder) {
@@ -27,8 +26,15 @@ export class CreateHymnPage {
     });
   }
 
-  displayStops(stops: OrganStops) {
+  displayStops(field: string, stops: OrganStops) {
     const modal = this.modal.create(StopsPage, stops);
+    modal.onDidDismiss((data, role) => {
+      if (data) {
+        this.form.patchValue({
+          [field]: data
+        });
+      }
+    });
     modal.present();
   }
 }

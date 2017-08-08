@@ -11,11 +11,15 @@ export class StopsPage {
   stopNames: string[];
 
   constructor(public viewCtrl: ViewController, public navParams: NavParams) {
-    this.stops = navParams.data;
+    this.stops = Object.assign({}, navParams.data);
     this.stopNames = Object.keys(this.stops).filter(key => key !== 'component' && key !== 'opts');
   }
 
   cancel() {
     this.viewCtrl.dismiss();
+  }
+
+  save() {
+    this.viewCtrl.dismiss(this.stops);
   }
 }

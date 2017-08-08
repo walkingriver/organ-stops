@@ -17,16 +17,16 @@
 
     <h2>Organ Stops</h2>
     <ion-list>
-      <ion-item (click)="displayStops(form.value.pedal)">
+      <ion-item (click)="displayStops('pedal', form.value.pedal)">
         <ion-label>Pedal</ion-label>
       </ion-item>
-      <ion-item (click)="displayStops(form.value.swell)">
+      <ion-item (click)="displayStops('swell', form.value.swell)">
         <ion-label>Swell</ion-label>
       </ion-item>
-      <ion-item (click)="displayStops(form.value.great)">
+      <ion-item (click)="displayStops('great', form.value.great)">
         <ion-label>Great</ion-label>
       </ion-item>
-      <ion-item (click)="displayStops(form.value.general)">
+      <ion-item (click)="displayStops('general', form.value.general)">
         <ion-label>General</ion-label>
       </ion-item>
     </ion-list>

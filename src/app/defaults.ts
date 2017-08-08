@@ -7,7 +7,7 @@ export const pedal: OrganStops = {
     'Lieblich Gedackt 16': false,
     'Octave 8': false,
     'Flute 8': false,
-    'Choral Bass4': false,
+    'Choral Bass 4': false,
     'Mixture III': false,
     'Posaune 16': false,
     'Waldhorn 16': false,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { OrganStops } from '../../app/organ-stops';
 
 @Component({
@@ -10,8 +10,12 @@ export class StopsPage {
   stops: OrganStops;
   stopNames: string[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public viewCtrl: ViewController, public navParams: NavParams) {
     this.stops = navParams.data;
-    this.stopNames = Object.keys(this.stops);
+    this.stopNames = Object.keys(this.stops).filter(key => key !== 'component' && key !== 'opts');
+  }
+
+  cancel() {
+    this.viewCtrl.dismiss();
   }
 }

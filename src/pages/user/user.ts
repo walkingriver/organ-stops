@@ -19,9 +19,12 @@ export class UserPage {
     });
   }
 
-  async signInWithFacebook() {
-    const res = await this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
-    console.log(res);
+  signInWithFacebook() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+  }
+
+  signInWithGoogle() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
   signOut() {

@@ -7,7 +7,13 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button outline *ngIf="!displayName" (click)="signInWithFacebook()">Login with Facebook</button>
-  <button ion-button outline *ngIf="!displayName" (click)="signInWithGoogle()">Login with Google</button>
-  <button ion-button outline *ngIf="displayName" (click)="signOut()">Logout</button>
+  <button ion-button block icon-left class="facebook" *ngIf="!displayName" (click)="signInWithFacebook()">
+    <ion-icon name="logo-facebook"></ion-icon>
+    Login with Facebook
+  </button>
+  <button ion-button block icon-left outline *ngIf="!displayName" (click)="signInWithGoogle()">
+    <ion-icon name="logo-google"></ion-icon>
+    Sign in with Google
+  </button>
+  <button ion-button block outline *ngIf="displayName" (click)="signOut()">Logout</button>
 </ion-content>

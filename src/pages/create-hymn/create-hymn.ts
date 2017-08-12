@@ -7,7 +7,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Hymn } from '../../app/hymn';
 import * as defaults from '../../app/defaults';
 import { OrganStops } from '../../app/organ-stops';
-import { StopsPage } from '../stops/stops';
+import { EditStopsPage } from '../edit-stops/edit-stops';
 
 @Component({
   selector: 'page-create-hymn',
@@ -28,7 +28,7 @@ export class CreateHymnPage {
   }
 
   displayStops(field: string, stops: OrganStops) {
-    const modal = this.modal.create(StopsPage, stops);
+    const modal = this.modal.create(EditStopsPage, stops);
     modal.onDidDismiss((data, role) => {
       if (data) {
         this.form.patchValue({

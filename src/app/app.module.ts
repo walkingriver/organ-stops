@@ -15,6 +15,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { HymnPage } from '../pages/hymn/hymn';
 import { StopsPage } from '../pages/stops/stops';
 import { CreateHymnPage } from '../pages/create-hymn/create-hymn';
+import { EditStopsPage } from '../pages/edit-stops/edit-stops';
 
 import config from './config';
 
@@ -27,7 +28,8 @@ import config from './config';
     TabsPage,
     HymnPage,
     StopsPage,
-    CreateHymnPage
+    CreateHymnPage,
+    EditStopsPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import config from './config';
     TabsPage,
     HymnPage,
     StopsPage,
-    CreateHymnPage
+    CreateHymnPage,
+    EditStopsPage
   ],
   providers: [
     StatusBar,

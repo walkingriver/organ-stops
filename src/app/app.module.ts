@@ -6,10 +6,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import { UserPage } from '../pages/user/user';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { HymnPage } from '../pages/hymn/hymn';
@@ -23,7 +24,7 @@ import config from './config';
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
+    UserPage,
     HomePage,
     TabsPage,
     HymnPage,
@@ -36,6 +37,7 @@ import config from './config';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config.firebase),
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule
   ],
@@ -43,7 +45,7 @@ import config from './config';
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
+    UserPage,
     HomePage,
     TabsPage,
     HymnPage,

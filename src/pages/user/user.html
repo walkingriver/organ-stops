@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{ displayName || 'User' }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button outline *ngIf="!displayName" (click)="signInWithFacebook()">Login with Facebook</button>
+  <button ion-button outline *ngIf="displayName" (click)="signOut()">Logout</button>
+</ion-content>

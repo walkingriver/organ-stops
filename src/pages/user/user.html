@@ -11,11 +11,10 @@
     <ion-icon name="logo-facebook"></ion-icon>
     Login with Facebook
   </button>
-  <div class="google" *ngIf="!displayName" (click)="signInWithGoogle()">
-    <!-- <ion-icon name="logo-google"></ion-icon> -->
+  <button ion-button block icon-left class="google" *ngIf="!displayName" (click)="signInWithGoogle()">
     <img class="google-logo" src="assets/images/google/btn_google_light_normal_ios.svg" />
-    <span>Sign in with Google</span>
-  </div>
+    Sign in with Google
+  </button>
   <button ion-button block icon-left class="twitter" *ngIf="!displayName" (click)="signInWithTwitter()">
     <ion-icon name="logo-twitter"></ion-icon>
     Login with Twitter

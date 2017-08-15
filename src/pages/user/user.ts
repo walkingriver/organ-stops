@@ -7,15 +7,11 @@ import * as firebase from 'firebase/app';
   templateUrl: 'user.html'
 })
 export class UserPage {
-  displayName: string;
+  user: firebase.User;
 
   constructor(private afAuth: AngularFireAuth) {
     afAuth.authState.subscribe(user => {
-      if (!user) {
-        this.displayName = null;
-        return;
-      }
-      this.displayName = user.displayName;
+      this.user = user;
     });
   }
 

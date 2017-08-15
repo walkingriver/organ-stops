@@ -1,23 +1,23 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      {{ displayName || 'User' }}
+      {{ user.displayName || 'User' }}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <button ion-button block icon-left class="facebook" *ngIf="!displayName" (click)="signInWithFacebook()">
+  <button ion-button block icon-left class="facebook" *ngIf="!user" (click)="signInWithFacebook()">
     <ion-icon name="logo-facebook"></ion-icon>
     Login with Facebook
   </button>
-  <button ion-button block icon-left class="google" *ngIf="!displayName" (click)="signInWithGoogle()">
+  <button ion-button block icon-left class="google" *ngIf="!user" (click)="signInWithGoogle()">
     <img class="google-logo" src="assets/images/google/btn_google_light_normal_ios.svg" />
     Sign in with Google
   </button>
-  <button ion-button block icon-left class="twitter" *ngIf="!displayName" (click)="signInWithTwitter()">
+  <button ion-button block icon-left class="twitter" *ngIf="!user" (click)="signInWithTwitter()">
     <ion-icon name="logo-twitter"></ion-icon>
     Login with Twitter
   </button>
-  <button ion-button block outline *ngIf="displayName" (click)="signOut()">Logout</button>
+  <button ion-button block outline *ngIf="user" (click)="signOut()">Logout</button>
 </ion-content>

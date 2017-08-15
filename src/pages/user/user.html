@@ -16,5 +16,9 @@
     <img class="google-logo" src="assets/images/google/btn_google_light_normal_ios.svg" />
     <span>Sign in with Google</span>
   </div>
+  <button ion-button block icon-left class="twitter" *ngIf="!displayName" (click)="signInWithTwitter()">
+    <ion-icon name="logo-twitter"></ion-icon>
+    Login with Twitter
+  </button>
   <button ion-button block outline *ngIf="displayName" (click)="signOut()">Logout</button>
 </ion-content>

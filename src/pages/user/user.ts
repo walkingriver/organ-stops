@@ -27,6 +27,10 @@ export class UserPage {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
+  signInWithTwitter() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider());
+  }
+
   signOut() {
     this.afAuth.auth.signOut();
   }

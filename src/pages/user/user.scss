@@ -48,4 +48,20 @@ page-user {
             margin-right: 24px;
         }
     }
+
+    .twitter {
+        background-color: #1DA1F2;
+        font-weight: bold;
+
+        padding-left: 22px;
+        padding-right: 8px;
+
+        ion-icon {
+            margin-right: 27px;
+        }
+
+        .button-inner {
+            justify-content: unset;
+        }
+    }
 }

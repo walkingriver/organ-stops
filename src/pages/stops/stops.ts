@@ -7,11 +7,13 @@ import { OrganStops } from '../../app/organ-stops';
   templateUrl: 'stops.html',
 })
 export class StopsPage {
+  title: string;
   stops: OrganStops;
   stopNames: string[];
 
   constructor(public navParams: NavParams) {
-    this.stops = Object.assign({}, navParams.data);
+    this.title = navParams.data.title;
+    this.stops = Object.assign({}, navParams.data.stops);
     this.stopNames = Object.keys(this.stops);
   }
 }

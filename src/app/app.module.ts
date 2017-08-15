@@ -17,6 +17,7 @@ import { HymnPage } from '../pages/hymn/hymn';
 import { StopsPage } from '../pages/stops/stops';
 import { CreateHymnPage } from '../pages/create-hymn/create-hymn';
 import { EditStopsPage } from '../pages/edit-stops/edit-stops';
+import { PipesModule } from '../pipes/pipes.module';
 
 import config from './config';
 
@@ -39,7 +40,8 @@ import config from './config';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipesModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

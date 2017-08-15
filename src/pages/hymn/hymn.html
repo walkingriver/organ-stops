@@ -7,16 +7,16 @@
 <ion-content padding>
   <h2>{{ hymn.number }}. {{ hymn.title }}</h2>
   <ion-list>
-    <button ion-item (click)="displayStops(hymn.pedal)">
+    <button ion-item (click)="displayStops('Pedal', hymn.pedal)">
         Pedal
     </button>
-    <button ion-item (click)="displayStops(hymn.swell)">
+    <button ion-item (click)="displayStops('Swell', hymn.swell)">
         Swell
     </button>
-    <button ion-item (click)="displayStops(hymn.great)">
+    <button ion-item (click)="displayStops('Great', hymn.great)">
         Great
     </button>
-    <button ion-item (click)="displayStops(hymn.general)">
+    <button ion-item (click)="displayStops('General', hymn.general)">
         General
     </button>
   </ion-list>

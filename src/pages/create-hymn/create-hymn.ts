@@ -28,7 +28,10 @@ export class CreateHymnPage {
   }
 
   displayStops(field: string, stops: OrganStops) {
-    const modal = this.modal.create(EditStopsPage, stops);
+    const modal = this.modal.create(EditStopsPage, {
+      title: field,
+      stops: stops
+    });
     modal.onDidDismiss((data, role) => {
       if (data) {
         this.form.patchValue({

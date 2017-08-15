@@ -15,7 +15,10 @@ export class HymnPage {
     this.hymn = navParams.data;
   }
 
-  displayStops(stops: OrganStops) {
-    this.navCtrl.push(StopsPage, stops);
+  displayStops(title: string, stops: OrganStops) {
+    this.navCtrl.push(StopsPage, {
+      title: title,
+      stops: stops
+    });
   }
 }

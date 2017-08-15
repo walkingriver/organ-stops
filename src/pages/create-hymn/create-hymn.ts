@@ -55,7 +55,18 @@ export class CreateHymnPage {
   }
 
   save() {
-    this.db.list('/hymns').push(this.form.value);
+    const hymn: Hymn = {
+      number: this.form.value.number,
+      title: this.form.value.title,
+      arrangements: [{
+        pedal: this.form.value.pedal,
+        swell: this.form.value.swell,
+        great: this.form.value.great,
+        general: this.form.value.general
+      }]
+    };
+
+    this.db.list('/hymns').push(hymn);
     this.viewCtrl.dismiss();
   }
 

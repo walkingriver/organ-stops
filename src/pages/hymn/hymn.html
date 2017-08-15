@@ -6,17 +6,17 @@
 
 <ion-content padding>
   <h2>{{ hymn.number }}. {{ hymn.title }}</h2>
-  <ion-list>
-    <button ion-item (click)="displayStops('Pedal', hymn.pedal)">
+  <ion-list *ngFor="let arrangement of hymn.arrangements">
+    <button ion-item (click)="displayStops('Pedal', arrangement.pedal)">
         Pedal
     </button>
-    <button ion-item (click)="displayStops('Swell', hymn.swell)">
+    <button ion-item (click)="displayStops('Swell', arrangement.swell)">
         Swell
     </button>
-    <button ion-item (click)="displayStops('Great', hymn.great)">
+    <button ion-item (click)="displayStops('Great', arrangement.great)">
         Great
     </button>
-    <button ion-item (click)="displayStops('General', hymn.general)">
+    <button ion-item (click)="displayStops('General', arrangement.general)">
         General
     </button>
   </ion-list>

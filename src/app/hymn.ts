@@ -1,10 +1,9 @@
 import { OrganStops } from './organ-stops';
+import { Arrangement } from './arrangement';
 
 export interface Hymn {
     number: number;
     title: string;
-    pedal: OrganStops;
-    swell: OrganStops;
-    great: OrganStops;
-    general: OrganStops;
+
+    arrangements: Arrangement[];
 }

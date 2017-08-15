@@ -56,9 +56,13 @@ export class CreateHymnPage {
 
   save() {
     const hymn: Hymn = {
-      number: this.form.value.number,
+      number: Number(this.form.value.number),
       title: this.form.value.title,
       arrangements: [{
+        user: {
+          id: this.user.uid,
+          name: this.user.displayName
+        },
         pedal: this.form.value.pedal,
         swell: this.form.value.swell,
         great: this.form.value.great,

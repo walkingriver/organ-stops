@@ -1,12 +1,14 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      {{ user.displayName || 'User' }}
+      {{ user?.displayName || 'User' }}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <p>Sign in to create your own organ arrangements and save your favorites.</p>
+
   <button ion-button block icon-left class="facebook" *ngIf="!user" (click)="signInWithFacebook()">
     <ion-icon name="logo-facebook"></ion-icon>
     Login with Facebook

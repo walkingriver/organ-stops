@@ -3,6 +3,8 @@ import { NavController, NavParams, ModalController, ViewController } from 'ionic
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 
 import { Hymn } from '../../app/hymn';
 import * as defaults from '../../app/defaults';
@@ -14,10 +16,15 @@ import { EditStopsPage } from '../edit-stops/edit-stops';
   templateUrl: 'create-hymn.html',
 })
 export class CreateHymnPage {
+  user: firebase.User;
   form: FormGroup;
 
   constructor(public viewCtrl: ViewController, public modal: ModalController,
-    fb: FormBuilder, private db: AngularFireDatabase) {
+    fb: FormBuilder, private db: AngularFireDatabase, private afAuth: AngularFireAuth) {
+    afAuth.authState.subscribe(user => {
+      this.user = user;
+    });
+
     this.form = fb.group({
       number: ['', [Validators.required, CustomValidators.min(1)]],
       title: ['', Validators.required],
@@ -26,6 +33,10 @@ export class CreateHymnPage {
       great: defaults.great,
       general: defaults.general
     });
+  }
+
+  ionViewCanEnter(): boolean {
+    return this.user ? true : false;
   }
 
   displayStops(field: string, stops: OrganStops) {

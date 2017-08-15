@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -16,7 +16,8 @@ import { EditStopsPage } from '../edit-stops/edit-stops';
 export class CreateHymnPage {
   form: FormGroup;
 
-  constructor(public modal: ModalController, fb: FormBuilder, private db: AngularFireDatabase) {
+  constructor(public viewCtrl: ViewController, public modal: ModalController,
+    fb: FormBuilder, private db: AngularFireDatabase) {
     this.form = fb.group({
       number: ['', [Validators.required, CustomValidators.min(1)]],
       title: ['', Validators.required],
@@ -44,5 +45,10 @@ export class CreateHymnPage {
 
   save() {
     this.db.list('/hymns').push(this.form.value);
+    this.viewCtrl.dismiss();
+  }
+
+  cancel() {
+    this.viewCtrl.dismiss();
   }
 }

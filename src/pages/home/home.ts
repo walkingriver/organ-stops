@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { BehaviorSubject } from 'rxjs/behaviorsubject';
 import { Observable } from 'rxjs/observable';
@@ -18,7 +18,8 @@ export class HomePage {
   sort = 'number';
   sortSubject = new BehaviorSubject(this.sort);
 
-  constructor(public navCtrl: NavController, private db: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, private db: AngularFireDatabase,
+    private modalCtrl: ModalController) {
     this.hymns = db.list('/hymns', {
       query: {
         orderByChild: this.sortSubject as Observable<string>
@@ -27,7 +28,8 @@ export class HomePage {
   }
 
   newHymn() {
-    this.navCtrl.push(CreateHymnPage);
+    const modal = this.modalCtrl.create(CreateHymnPage);
+    modal.present();
   }
 
   viewHymn(hymn: Hymn) {

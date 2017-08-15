@@ -1,7 +1,17 @@
 <ion-header>
-  <ion-navbar>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button (click)="cancel()">
+        Cancel
+      </button>
+    </ion-buttons>
     <ion-title>New Hymn</ion-title>
-  </ion-navbar>
+    <ion-buttons end>
+      <button ion-button type="submit" [disabled]="form.invalid" (click)="save()">
+        Save
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
@@ -30,8 +40,6 @@
         General
       </button>
     </ion-list>
-
-    <button ion-button type="submit" [disabled]="form.invalid" (click)="save()">Save</button>
   </form>
 
 </ion-content>

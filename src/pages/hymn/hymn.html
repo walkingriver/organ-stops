@@ -6,21 +6,25 @@
 
 <ion-content padding>
   <h2>{{ hymn.number }}. {{ hymn.title }}</h2>
-  <ion-list *ngFor="let arrangement of arrangements | async">
-    <span>Uploaded by: {{ arrangement.user.name }}</span>
-    <button ion-item (click)="displayStops('Pedal', arrangement.pedal)">
-        Pedal
-    </button>
-    <button ion-item (click)="displayStops('Swell', arrangement.swell)">
-        Swell
-    </button>
-    <button ion-item (click)="displayStops('Great', arrangement.great)">
-        Great
-    </button>
-    <button ion-item (click)="displayStops('General', arrangement.general)">
-        General
-    </button>
-  </ion-list>
 
-  <button ion-button block (click)="customize()">Customize</button>
+  <ion-slides pager [spaceBetween]="10">
+    <ion-slide *ngFor="let arrangement of arrangements | async">
+      <span>Uploaded by: {{ arrangement.user.name }}</span> <br/> <br/>
+      <ion-list>
+        <button ion-item (click)="displayStops('Pedal', arrangement.pedal)">
+          Pedal
+        </button>
+        <button ion-item (click)="displayStops('Swell', arrangement.swell)">
+          Swell
+        </button>
+        <button ion-item (click)="displayStops('Great', arrangement.great)">
+          Great
+        </button>
+        <button ion-item (click)="displayStops('General', arrangement.general)">
+          General
+        </button>
+      </ion-list>
+      <button ion-button block (click)="customize()">Customize</button>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

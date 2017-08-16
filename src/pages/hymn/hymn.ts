@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { NavController, NavParams, ModalController, Slides } from 'ionic-angular';
 import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
@@ -19,6 +19,8 @@ export class HymnPage {
   hymn: Hymn;
   arrangements: FirebaseListObservable<Arrangement[]>;
   user: firebase.User;
+
+  @ViewChild(Slides) slides: Slides;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private modalCtrl: ModalController, db: AngularFireDatabase, afAuth: AngularFireAuth) {

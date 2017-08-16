@@ -15,7 +15,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { HymnPage } from '../pages/hymn/hymn';
 import { StopsPage } from '../pages/stops/stops';
-import { CreateHymnPage } from '../pages/create-hymn/create-hymn';
+import { EditHymnPage } from '../pages/edit-hymn/edit-hymn';
 import { EditStopsPage } from '../pages/edit-stops/edit-stops';
 import { PipesModule } from '../pipes/pipes.module';
 
@@ -30,7 +30,7 @@ import config from './config';
     TabsPage,
     HymnPage,
     StopsPage,
-    CreateHymnPage,
+    EditHymnPage,
     EditStopsPage
   ],
   imports: [
@@ -52,7 +52,7 @@ import config from './config';
     TabsPage,
     HymnPage,
     StopsPage,
-    CreateHymnPage,
+    EditHymnPage,
     EditStopsPage
   ],
   providers: [

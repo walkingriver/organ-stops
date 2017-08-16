@@ -18,11 +18,11 @@
   <form [formGroup]="form">
     <ion-item>
       <ion-label>Number</ion-label>
-      <ion-input type="number" formControlName="number"></ion-input>
+      <ion-input type="number" formControlName="number" [disabled]="hymn"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Title</ion-label>
-      <ion-input type="text" formControlName="title"></ion-input>
+      <ion-input type="text" formControlName="title" [disabled]="hymn"></ion-input>
     </ion-item>
 
     <h2>Organ Stops</h2>

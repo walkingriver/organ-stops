@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { Hymn } from '../../app/hymn';
 import { OrganStops } from '../../app/organ-stops';
 import { StopsPage } from '../stops/stops';
+import { EditHymnPage } from '../edit-hymn/edit-hymn';
 
 @Component({
   selector: 'page-hymn',
@@ -11,7 +12,8 @@ import { StopsPage } from '../stops/stops';
 export class HymnPage {
   hymn: Hymn;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private modalCtrl: ModalController) {
     this.hymn = navParams.data;
   }
 
@@ -20,5 +22,10 @@ export class HymnPage {
       title: title,
       stops: stops
     });
+  }
+
+  customize() {
+    const modal = this.modalCtrl.create(EditHymnPage, { hymn: this.hymn });
+    modal.present();
   }
 }

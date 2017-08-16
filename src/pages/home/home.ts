@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/observable';
 
 import { HymnPage } from '../hymn/hymn';
 import { Hymn } from '../../app/hymn';
-import { CreateHymnPage } from '../create-hymn/create-hymn';
+import { EditHymnPage } from '../edit-hymn/edit-hymn';
 import { UserPage } from '../user/user';
 
 @Component({
@@ -37,7 +37,7 @@ export class HomePage {
 
   async newHymn() {
     if (this.user) {
-      const modal = this.modalCtrl.create(CreateHymnPage);
+      const modal = this.modalCtrl.create(EditHymnPage);
       modal.present();
     } else {
       this.navCtrl.push(UserPage);

@@ -35,7 +35,7 @@ export class HomePage {
     });
   }
 
-  async newHymn() {
+  newHymn() {
     if (this.user) {
       const modal = this.modalCtrl.create(EditHymnPage);
       modal.present();

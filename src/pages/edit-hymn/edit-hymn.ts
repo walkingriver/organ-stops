@@ -73,19 +73,22 @@ export class EditHymnPage {
     const hymn: Hymn = {
       number: Number(this.form.value.number),
       title: this.form.value.title,
-      arrangements: [{
-        user: {
-          id: this.user.uid,
-          name: this.user.displayName
-        },
-        pedal: this.form.value.pedal,
-        swell: this.form.value.swell,
-        great: this.form.value.great,
-        general: this.form.value.general
-      }]
+      arrangements: []
+    };
+    const arrangement: Arrangement = {
+      user: {
+        id: this.user.uid,
+        name: this.user.displayName
+      },
+      pedal: this.form.value.pedal,
+      swell: this.form.value.swell,
+      great: this.form.value.great,
+      general: this.form.value.general
     };
 
-    this.db.list('/hymns').push(hymn);
+    const id = this.db.list('/hymns').push(hymn).key;
+    this.db.list(`/hymns/${id}/arrangements`).push(arrangement);
+
     this.viewCtrl.dismiss();
   }
 

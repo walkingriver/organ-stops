@@ -6,7 +6,7 @@
 
 <ion-content padding>
   <h2>{{ hymn.number }}. {{ hymn.title }}</h2>
-  <ion-list *ngFor="let arrangement of hymn.arrangements">
+  <ion-list *ngFor="let arrangement of arrangements | async">
     <span>Uploaded by: {{ arrangement.user.name }}</span>
     <button ion-item (click)="displayStops('Pedal', arrangement.pedal)">
         Pedal

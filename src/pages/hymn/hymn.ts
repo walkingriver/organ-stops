@@ -5,7 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
 import { Hymn } from '../../app/hymn';
-import { OrganStops } from '../../app/organ-stops';
+import { OrganStop } from '../../app/organ-stop';
 import { StopsPage } from '../stops/stops';
 import { EditHymnPage } from '../edit-hymn/edit-hymn';
 import { Arrangement } from '../../app/arrangement';
@@ -30,7 +30,7 @@ export class HymnPage {
     });
   }
 
-  displayStops(title: string, stops: OrganStops) {
+  displayStops(title: string, stops: OrganStop[]) {
     this.navCtrl.push(StopsPage, {
       title: title,
       stops: stops

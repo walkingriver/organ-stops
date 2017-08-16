@@ -1,4 +1,3 @@
-import { OrganStops } from './organ-stops';
 import { Arrangement } from './arrangement';
 
 export interface Hymn {

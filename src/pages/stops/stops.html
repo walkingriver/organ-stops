@@ -6,9 +6,9 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let key of stopNames" class="full-opacity">
-      <ion-label>{{ key }}</ion-label>
-      <ion-toggle [(ngModel)]="stops[key]" disabled="true"></ion-toggle>
+    <ion-item *ngFor="let stop of stops" class="full-opacity">
+      <ion-label>{{ stop.name }}</ion-label>
+      <ion-toggle [(ngModel)]="stop.enabled" disabled="true"></ion-toggle>
     </ion-item>
   </ion-list>
 </ion-content>

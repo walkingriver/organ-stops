@@ -16,9 +16,9 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let key of stopNames">
-      <ion-label>{{ key }}</ion-label>
-      <ion-toggle [(ngModel)]="stops[key]"></ion-toggle>
+    <ion-item *ngFor="let stop of stops">
+      <ion-label>{{ stop.name }}</ion-label>
+      <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
     </ion-item>
   </ion-list>
 </ion-content>

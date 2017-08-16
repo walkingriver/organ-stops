@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
-import { OrganStops } from '../../app/organ-stops';
+import { OrganStop } from '../../app/organ-stop';
 
 @Component({
   selector: 'page-stops',
@@ -8,12 +8,10 @@ import { OrganStops } from '../../app/organ-stops';
 })
 export class StopsPage {
   title: string;
-  stops: OrganStops;
-  stopNames: string[];
+  stops: OrganStop[];
 
   constructor(public navParams: NavParams) {
     this.title = navParams.data.title;
-    this.stops = Object.assign({}, navParams.data.stops);
-    this.stopNames = Object.keys(this.stops);
+    this.stops = navParams.data.stops;
   }
 }

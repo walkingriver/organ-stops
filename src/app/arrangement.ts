@@ -1,10 +1,10 @@
-import { OrganStops } from './organ-stops';
+import { OrganStop } from './organ-stop';
 import { User } from './user';
 
 export interface Arrangement {
     user: User;
-    pedal: OrganStops;
-    swell: OrganStops;
-    great: OrganStops;
-    general: OrganStops;
+    pedal: OrganStop[];
+    swell: OrganStop[];
+    great: OrganStop[];
+    general: OrganStop[];
 }

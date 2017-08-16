@@ -39,9 +39,12 @@ export class HymnPage {
     });
   }
 
-  customize() {
+  customize(arrangement: Arrangement) {
     if (this.user) {
-      const modal = this.modalCtrl.create(EditHymnPage, { hymn: this.hymn });
+      const modal = this.modalCtrl.create(EditHymnPage, {
+        hymn: this.hymn,
+        arrangement: arrangement
+      });
       modal.present();
     } else {
       this.navCtrl.push(UserPage);

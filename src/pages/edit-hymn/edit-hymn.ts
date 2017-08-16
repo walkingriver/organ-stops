@@ -33,12 +33,6 @@ export class EditHymnPage {
       this.user = user;
     });
 
-    // Make copies of the default stops
-    this.pedal = defaults.pedal.slice();
-    this.swell = defaults.swell.slice();
-    this.great = defaults.great.slice();
-    this.general = defaults.general.slice();
-
     this.form = fb.group({
       number: ['', [Validators.required, CustomValidators.min(1)]],
       title: ['', Validators.required]
@@ -50,6 +44,20 @@ export class EditHymnPage {
         number: this.hymn.number,
         title: this.hymn.title
       });
+    }
+
+    if (navParams.data.arrangement) {
+      const arrangement = navParams.data.arrangement as Arrangement;
+      this.pedal = arrangement.pedal.slice();
+      this.swell = arrangement.swell.slice();
+      this.great = arrangement.great.slice();
+      this.general = arrangement.great.slice();
+    } else {
+      // Make copies of the default stops
+      this.pedal = defaults.pedal.slice();
+      this.swell = defaults.swell.slice();
+      this.great = defaults.great.slice();
+      this.general = defaults.general.slice();
     }
   }
 

@@ -19,7 +19,14 @@
       </ion-item>
       <button ion-button block type="submit" [disabled]="form.invalid">Login</button>
     </form>
-    <div class="center-text"><a (click)="register()">Create an account</a></div>
+    <div class="login-links">
+      <div class="center-text">
+        <a (click)="forgotPassword()">Forgot your password?</a>
+      </div>
+      <div class="center-text">
+        <a (click)="register()">Create an account</a>
+      </div>
+    </div>
 
     <hr/>
 

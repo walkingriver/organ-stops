@@ -24,6 +24,17 @@ export class UserPage {
     });
   }
 
+  async forgotPassword() {
+    const email = this.form.value.email;
+    if (!email) {
+      alert('Please enter your email address');
+      return;
+    }
+
+    await this.afAuth.auth.sendPasswordResetEmail(email);
+    alert('A password recovery email has been sent');
+  }
+
   register() {
     const modal = this.modalCtrl.create(RegisterPage);
     modal.present();

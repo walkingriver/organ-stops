@@ -36,9 +36,9 @@ export class UserPage {
       alert('A password recovery email has been sent.');
     } catch (error) {
       if (error.code === 'auth/user-not-found') {
-        alert ('No user exists with that email address.');
+        alert('No user exists with that email address.');
       } else if (error.code === 'auth/invalid-email') {
-        alert ('Please enter a valid email address.');
+        alert('Please enter a valid email address.');
       }
     }
   }
@@ -48,8 +48,18 @@ export class UserPage {
     modal.present();
   }
 
-  signInWithEmail() {
-    this.afAuth.auth.signInWithEmailAndPassword(this.form.value.email, this.form.value.password);
+  async signInWithEmail() {
+    try {
+      await this.afAuth.auth.signInWithEmailAndPassword(this.form.value.email, this.form.value.password);
+    } catch (error) {
+      if (error.code === 'auth/invalid-email') {
+        alert('Please enter a valid email address.');
+      } else if (error.code === 'auth/user-not-found') {
+        alert('No user exists with that email address.');
+      } else if (error.code === 'auth/wrong-password') {
+        alert('Your username or password is incorrect');
+      }
+    }
   }
 
   signInWithFacebook() {

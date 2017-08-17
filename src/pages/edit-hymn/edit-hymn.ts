@@ -20,6 +20,7 @@ export class EditHymnPage {
   user: firebase.User;
   form: FormGroup;
   hymn: Hymn;
+  arrangement: Arrangement;
 
   pedal: OrganStop[];
   swell: OrganStop[];
@@ -47,11 +48,11 @@ export class EditHymnPage {
     }
 
     if (navParams.data.arrangement) {
-      const arrangement = navParams.data.arrangement as Arrangement;
-      this.pedal = arrangement.pedal.slice();
-      this.swell = arrangement.swell.slice();
-      this.great = arrangement.great.slice();
-      this.general = arrangement.great.slice();
+      this.arrangement = navParams.data.arrangement;
+      this.pedal = this.arrangement.pedal.slice();
+      this.swell = this.arrangement.swell.slice();
+      this.great = this.arrangement.great.slice();
+      this.general = this.arrangement.great.slice();
     } else {
       // Make copies of the default stops
       this.pedal = defaults.pedal.slice();
@@ -117,7 +118,14 @@ export class EditHymnPage {
       general: this.general
     };
 
-    this.db.list(`/hymns/${this.hymn.$key}/arrangements`).push(arrangement);
+    if (this.arrangement.user.id === this.user.uid) {
+      // Update existing record
+      this.db.object(`/hymns/${this.hymn.$key}/arrangements/${this.arrangement.$key}`).set(arrangement);
+    } else {
+      // Save a new record
+      this.db.list(`/hymns/${this.hymn.$key}/arrangements`).push(arrangement);
+    }
+
     this.viewCtrl.dismiss();
   }
 

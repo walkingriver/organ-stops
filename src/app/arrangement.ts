@@ -7,4 +7,7 @@ export interface Arrangement {
     swell: OrganStop[];
     great: OrganStop[];
     general: OrganStop[];
+
+    // Properties set by Firebase
+    $key?: string;
 }

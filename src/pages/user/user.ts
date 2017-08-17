@@ -13,6 +13,8 @@ export class UserPage {
   user: firebase.User;
   form: FormGroup;
 
+  pendingCredential: firebase.auth.AuthCredential;
+
   constructor(private modalCtrl: ModalController, private afAuth: AngularFireAuth, fb: FormBuilder) {
     afAuth.authState.subscribe(user => {
       this.user = user;
@@ -39,6 +41,8 @@ export class UserPage {
         alert('No user exists with that email address.');
       } else if (error.code === 'auth/invalid-email') {
         alert('Please enter a valid email address.');
+      } else {
+        throw error;
       }
     }
   }
@@ -48,9 +52,17 @@ export class UserPage {
     modal.present();
   }
 
+  linkAccount() {
+    if (this.pendingCredential) {
+      this.user.linkWithCredential(this.pendingCredential);
+      this.pendingCredential = null;
+    }
+  }
+
   async signInWithEmail() {
     try {
       await this.afAuth.auth.signInWithEmailAndPassword(this.form.value.email, this.form.value.password);
+      this.linkAccount();
     } catch (error) {
       if (error.code === 'auth/invalid-email') {
         alert('Please enter a valid email address.');
@@ -58,20 +70,67 @@ export class UserPage {
         alert('No user exists with that email address.');
       } else if (error.code === 'auth/wrong-password') {
         alert('Your username or password is incorrect');
+      } else {
+        throw error;
       }
     }
   }
 
-  signInWithFacebook() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+  async signInWithFacebook() {
+    try {
+      await this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+      this.linkAccount();
+    } catch (error) {
+      await this.handleProviderError(error);
+    }
   }
 
-  signInWithGoogle() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  async signInWithGoogle() {
+    try {
+      await this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      this.linkAccount();
+    } catch (error) {
+      await this.handleProviderError(error);
+    }
   }
 
-  signInWithTwitter() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider());
+  async signInWithTwitter() {
+    try {
+      await this.afAuth.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider());
+      this.linkAccount();
+    } catch (error) {
+      await this.handleProviderError(error);
+    }
+  }
+
+  async handleProviderError(error: any) {
+    if (error.code === 'auth/account-exists-with-different-credential') {
+      this.pendingCredential = error.credential;
+      const email = error.email;
+
+      const providers = await this.afAuth.auth.fetchProvidersForEmail(email);
+      const providerId = providers[0]; // Grab primary auth provider
+
+      if (providerId === 'password') {
+        alert('Please sign in with your email address to link this account.');
+      } else {
+        const provider = this.getProviderForProviderId(providerId);
+        alert(`Please sign in with your ${provider} account to link this account.`);
+      }
+    }
+  }
+
+  getProviderForProviderId(providerId: string): string {
+    switch (providerId) {
+      case 'google.com':
+        return 'Google';
+      case 'facebook.com':
+        return 'Facebook';
+      case 'twitter.com':
+        return 'Twitter';
+      default:
+        return '';
+    }
   }
 
   signOut() {

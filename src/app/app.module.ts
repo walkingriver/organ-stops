@@ -17,6 +17,7 @@ import { HymnPage } from '../pages/hymn/hymn';
 import { StopsPage } from '../pages/stops/stops';
 import { EditHymnPage } from '../pages/edit-hymn/edit-hymn';
 import { EditStopsPage } from '../pages/edit-stops/edit-stops';
+import { RegisterPage } from '../pages/register/register';
 import { PipesModule } from '../pipes/pipes.module';
 
 import config from './config';
@@ -31,7 +32,8 @@ import config from './config';
     HymnPage,
     StopsPage,
     EditHymnPage,
-    EditStopsPage
+    EditStopsPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,8 @@ import config from './config';
     HymnPage,
     StopsPage,
     EditHymnPage,
-    EditStopsPage
+    EditStopsPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,

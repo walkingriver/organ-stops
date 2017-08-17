@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ModalController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { RegisterPage } from '../register/register';
 
 @Component({
   selector: 'page-user',
@@ -11,7 +13,7 @@ export class UserPage {
   user: firebase.User;
   form: FormGroup;
 
-  constructor(private afAuth: AngularFireAuth, fb: FormBuilder) {
+  constructor(private modalCtrl: ModalController, private afAuth: AngularFireAuth, fb: FormBuilder) {
     afAuth.authState.subscribe(user => {
       this.user = user;
     });
@@ -20,6 +22,11 @@ export class UserPage {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
+  }
+
+  register() {
+    const modal = this.modalCtrl.create(RegisterPage);
+    modal.present();
   }
 
   signInWithEmail() {

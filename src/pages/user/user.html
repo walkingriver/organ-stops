@@ -12,7 +12,7 @@
   <div *ngIf="!user">
     <form [formGroup]="form" (ngSubmit)="signInWithEmail()">
       <ion-item>
-        <ion-input type="test" formControlName="email" placeholder="Email Address"></ion-input>
+        <ion-input type="email" formControlName="email" placeholder="Email Address"></ion-input>
       </ion-item>
       <ion-item>
         <ion-input type="password" formControlName="password" placeholder="Password"></ion-input>

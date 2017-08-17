@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button (click)="cancel()">
+        Cancel
+      </button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="form" (ngSubmit)="register()">
+    <ion-item>
+      <ion-input type="text" formControlName="name" placeholder="Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="email" formControlName="email" placeholder="Email Address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" formControlName="password" placeholder="Password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" formControlName="confirmPassword" placeholder="Confirm Password"></ion-input>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="form.invalid">Register</button>
+  </form>
+</ion-content>

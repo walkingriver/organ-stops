@@ -39,6 +39,13 @@ export class HymnPage {
     });
   }
 
+  listEnabledStops(stops: OrganStop[]) {
+    const list = stops.filter(stop => stop.enabled)
+      .map(stop => stop.name)
+      .join(', ');
+    return list;
+  }
+
   customize(arrangement: Arrangement) {
     if (this.user) {
       const modal = this.modalCtrl.create(EditHymnPage, {

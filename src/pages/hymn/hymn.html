@@ -13,15 +13,19 @@
       <ion-list>
         <button ion-item (click)="displayStops('Pedal', arrangement.pedal)">
           Pedal
+          <p>{{ listEnabledStops(arrangement.pedal) }}</p>
         </button>
         <button ion-item (click)="displayStops('Swell', arrangement.swell)">
           Swell
+          <p>{{ listEnabledStops(arrangement.swell) }}</p>
         </button>
         <button ion-item (click)="displayStops('Great', arrangement.great)">
           Great
+          <p>{{ listEnabledStops(arrangement.great) }}</p>
         </button>
         <button ion-item (click)="displayStops('General', arrangement.general)">
           General
+          <p>{{ listEnabledStops(arrangement.general) }}</p>
         </button>
       </ion-list>
       <button ion-button block (click)="customize(arrangement)">Customize</button>

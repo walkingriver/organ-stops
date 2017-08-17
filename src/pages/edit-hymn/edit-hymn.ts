@@ -52,7 +52,7 @@ export class EditHymnPage {
       this.pedal = this.arrangement.pedal.slice();
       this.swell = this.arrangement.swell.slice();
       this.great = this.arrangement.great.slice();
-      this.general = this.arrangement.great.slice();
+      this.general = this.arrangement.general.slice();
     } else {
       // Make copies of the default stops
       this.pedal = defaults.pedal.slice();

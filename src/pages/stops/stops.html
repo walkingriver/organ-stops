@@ -8,7 +8,7 @@
   <ion-list>
     <ion-item *ngFor="let stop of stops" class="full-opacity">
       <ion-label>{{ stop.name }}</ion-label>
-      <ion-toggle [(ngModel)]="stop.enabled" disabled="true"></ion-toggle>
+      <ion-toggle [checked]="stop.enabled" disabled="true"></ion-toggle>
     </ion-item>
   </ion-list>
 </ion-content>

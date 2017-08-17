@@ -41,9 +41,14 @@ export class EditHymnPage {
 
     if (navParams.data.hymn) {
       this.hymn = navParams.data.hymn;
-      this.form.reset({
-        number: this.hymn.number,
-        title: this.hymn.title
+      this.form = fb.group({
+        number: { value: this.hymn.number, disabled: true },
+        title: { value: this.hymn.title, disabled: true }
+      });
+    } else {
+      this.form = fb.group({
+        number: ['', [Validators.required, CustomValidators.min(1)]],
+        title: ['', Validators.required]
       });
     }
 

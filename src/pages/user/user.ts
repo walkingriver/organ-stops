@@ -26,13 +26,21 @@ export class UserPage {
 
   async forgotPassword() {
     const email = this.form.value.email;
-    if (!email) {
-      alert('Please enter your email address');
+    if (!email || this.form.controls['email'].invalid) {
+      alert('Please enter your email address.');
       return;
     }
 
-    await this.afAuth.auth.sendPasswordResetEmail(email);
-    alert('A password recovery email has been sent');
+    try {
+      await this.afAuth.auth.sendPasswordResetEmail(email);
+      alert('A password recovery email has been sent.');
+    } catch (error) {
+      if (error.code === 'auth/user-not-found') {
+        alert ('No user exists with that email address.');
+      } else if (error.code === 'auth/invalid-email') {
+        alert ('Please enter a valid email address.');
+      }
+    }
   }
 
   register() {

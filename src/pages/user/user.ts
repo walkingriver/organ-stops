@@ -37,12 +37,15 @@ export class UserPage {
       await this.afAuth.auth.sendPasswordResetEmail(email);
       alert('A password recovery email has been sent.');
     } catch (error) {
-      if (error.code === 'auth/user-not-found') {
-        alert('No user exists with that email address.');
-      } else if (error.code === 'auth/invalid-email') {
-        alert('Please enter a valid email address.');
-      } else {
-        throw error;
+      switch (error.code) {
+        case 'auth/user-not-found':
+          alert('No user exists with that email address.');
+          break;
+        case 'auth/invalid-email':
+          alert('Please enter a valid email address.');
+          break;
+        default:
+          throw error;
       }
     }
   }
@@ -64,14 +67,18 @@ export class UserPage {
       await this.afAuth.auth.signInWithEmailAndPassword(this.form.value.email, this.form.value.password);
       this.linkAccount();
     } catch (error) {
-      if (error.code === 'auth/invalid-email') {
-        alert('Please enter a valid email address.');
-      } else if (error.code === 'auth/user-not-found') {
-        alert('No user exists with that email address.');
-      } else if (error.code === 'auth/wrong-password') {
-        alert('Your username or password is incorrect');
-      } else {
-        throw error;
+      switch (error.code) {
+        case 'auth/invalid-email':
+          alert('Please enter a valid email address.');
+          break;
+        case 'auth/user-not-found':
+          alert('No user exists with that email address.');
+          break;
+        case 'auth/wrong-password':
+          alert('Your username or password is incorrect');
+          break;
+        default:
+          throw error;
       }
     }
   }
@@ -117,6 +124,8 @@ export class UserPage {
         const provider = this.getProviderForProviderId(providerId);
         alert(`Please sign in with your ${provider} account to link this account.`);
       }
+    } else {
+      throw error;
     }
   }
 

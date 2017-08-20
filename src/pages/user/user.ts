@@ -55,7 +55,7 @@ export class UserPage {
     modal.present();
   }
 
-  linkAccount() {
+  private linkAccount() {
     if (this.pendingCredential) {
       this.user.linkWithCredential(this.pendingCredential);
       this.pendingCredential = null;
@@ -84,33 +84,27 @@ export class UserPage {
   }
 
   async signInWithFacebook() {
-    try {
-      await this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
-      this.linkAccount();
-    } catch (error) {
-      await this.handleProviderError(error);
-    }
+    await this.signInWithProvider(new firebase.auth.FacebookAuthProvider());
   }
 
   async signInWithGoogle() {
-    try {
-      await this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-      this.linkAccount();
-    } catch (error) {
-      await this.handleProviderError(error);
-    }
+    await this.signInWithProvider(new firebase.auth.GoogleAuthProvider());
   }
 
   async signInWithTwitter() {
+    await this.signInWithProvider(new firebase.auth.TwitterAuthProvider());
+  }
+
+  private async signInWithProvider(provider: firebase.auth.AuthProvider) {
     try {
-      await this.afAuth.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider());
+      await this.afAuth.auth.signInWithPopup(provider);
       this.linkAccount();
     } catch (error) {
       await this.handleProviderError(error);
     }
   }
 
-  async handleProviderError(error: any) {
+  private async handleProviderError(error: any) {
     if (error.code === 'auth/account-exists-with-different-credential') {
       this.pendingCredential = error.credential;
       const email = error.email;
@@ -129,7 +123,7 @@ export class UserPage {
     }
   }
 
-  getProviderForProviderId(providerId: string): string {
+  private getProviderForProviderId(providerId: string): string {
     switch (providerId) {
       case 'google.com':
         return 'Google';

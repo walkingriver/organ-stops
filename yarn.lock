@@ -105,9 +105,9 @@
     ws "1.1.1"
     xml2js "0.4.17"
 
-"@ionic/cli-utils@1.9.1":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@ionic/cli-utils/-/cli-utils-1.9.1.tgz#a0118819cb8de1f3bc4bc5b401e5b61d7f41d5b5"
+"@ionic/cli-utils@1.9.2":
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@ionic/cli-utils/-/cli-utils-1.9.2.tgz#9916d8bb6ec696b948b6be1c05fbec46c87ddc0b"
   dependencies:
     "@types/gulp" "^3.8.33"
     archiver "^2.0.0"
@@ -1779,9 +1779,9 @@ find-up@^2.0.0:
   dependencies:
     locate-path "^2.0.0"
 
-firebase@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-4.2.0.tgz#9181a0a22c6afc2b27bd810789beac48a438207d"
+firebase@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/firebase/-/firebase-4.3.0.tgz#21d95a92f862c7e406ddf871c173b50f153f8d46"
   dependencies:
     dom-storage "^2.0.2"
     faye-websocket "0.9.3"
@@ -2149,11 +2149,11 @@ ionic-angular@3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/ionic-angular/-/ionic-angular-3.6.0.tgz#3c9222796c84cab37f5a3d090c268c9fe308e007"
 
-ionic@^3.9.1:
-  version "3.9.1"
-  resolved "https://registry.yarnpkg.com/ionic/-/ionic-3.9.1.tgz#be50eea2f55bad40574772ecaeaf5a460fd16330"
+ionic@^3.9.2:
+  version "3.9.2"
+  resolved "https://registry.yarnpkg.com/ionic/-/ionic-3.9.2.tgz#d958069ce29d9dbb8b9c1638b59995ce005ce845"
   dependencies:
-    "@ionic/cli-utils" "1.9.1"
+    "@ionic/cli-utils" "1.9.2"
     chalk "^2.0.0"
     opn "^5.1.0"
     os-name "^2.0.1"

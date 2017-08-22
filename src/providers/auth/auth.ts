@@ -19,6 +19,10 @@ export class AuthProvider {
     return this.afUser;
   }
 
+  get isAuthenticated(): boolean {
+    return this.afUser ? true : false;
+  }
+
   async forgotPassword(email: string) {
     try {
       await this.afAuth.auth.sendPasswordResetEmail(email);

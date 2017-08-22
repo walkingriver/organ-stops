@@ -10,24 +10,20 @@ import { HymnPage } from '../hymn/hymn';
 import { Hymn } from '../../app/hymn';
 import { EditHymnPage } from '../edit-hymn/edit-hymn';
 import { UserPage } from '../user/user';
+import { AuthProvider } from '../../providers/auth/auth';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  user: firebase.User;
   hymns: FirebaseListObservable<Hymn[]>;
 
   sort = 'number';
   sortSubject = new BehaviorSubject(this.sort);
 
   constructor(public navCtrl: NavController, private modalCtrl: ModalController,
-    private db: AngularFireDatabase, private afAuth: AngularFireAuth) {
-    afAuth.authState.subscribe(user => {
-      this.user = user;
-    });
-
+    private db: AngularFireDatabase, private auth: AuthProvider) {
     this.hymns = db.list('/hymns', {
       query: {
         orderByChild: this.sortSubject as Observable<string>
@@ -36,7 +32,7 @@ export class HomePage {
   }
 
   newHymn() {
-    if (this.user) {
+    if (this.auth.isAuthenticated) {
       const modal = this.modalCtrl.create(EditHymnPage);
       modal.present();
     } else {

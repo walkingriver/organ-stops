@@ -9,7 +9,7 @@
 <ion-content padding>
   <p>Sign in to create your own organ arrangements and save your favorites.</p>
 
-  <div *ngIf="!user">
+  <div *ngIf="!auth.isAuthenticated">
     <form [formGroup]="form" (ngSubmit)="signInWithEmail()">
       <ion-item>
         <ion-input type="email" formControlName="email" placeholder="Email Address"></ion-input>
@@ -43,5 +43,5 @@
       Login with Twitter
     </button>
   </div>
-  <button ion-button block outline *ngIf="user" (click)="signOut()">Logout</button>
+  <button ion-button block outline *ngIf="auth.isAuthenticated" (click)="signOut()">Logout</button>
 </ion-content>

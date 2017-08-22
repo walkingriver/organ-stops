@@ -10,6 +10,7 @@ import { StopsPage } from '../stops/stops';
 import { EditHymnPage } from '../edit-hymn/edit-hymn';
 import { Arrangement } from '../../app/arrangement';
 import { UserPage } from '../user/user';
+import { AuthProvider } from '../../providers/auth/auth';
 
 @Component({
   selector: 'page-hymn',
@@ -18,18 +19,13 @@ import { UserPage } from '../user/user';
 export class HymnPage {
   hymn: Hymn;
   arrangements: FirebaseListObservable<Arrangement[]>;
-  user: firebase.User;
 
   @ViewChild(Slides) slides: Slides;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private modalCtrl: ModalController, db: AngularFireDatabase, afAuth: AngularFireAuth) {
+    private modalCtrl: ModalController, db: AngularFireDatabase, private auth: AuthProvider) {
     this.hymn = navParams.data;
     this.arrangements = db.list(`/hymns/${this.hymn.$key}/arrangements`);
-
-    afAuth.authState.subscribe(user => {
-      this.user = user;
-    });
   }
 
   displayStops(title: string, stops: OrganStop[]) {
@@ -47,7 +43,7 @@ export class HymnPage {
   }
 
   customize(arrangement: Arrangement) {
-    if (this.user) {
+    if (this.auth.isAuthenticated) {
       const modal = this.modalCtrl.create(EditHymnPage, {
         hymn: this.hymn,
         arrangement: arrangement

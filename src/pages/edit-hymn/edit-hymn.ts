@@ -11,13 +11,13 @@ import { Arrangement } from '../../app/arrangement';
 import * as defaults from '../../app/defaults';
 import { OrganStop } from '../../app/organ-stop';
 import { EditStopsPage } from '../edit-stops/edit-stops';
+import { AuthProvider } from '../../providers/auth/auth';
 
 @Component({
   selector: 'page-edit-hymn',
   templateUrl: 'edit-hymn.html',
 })
 export class EditHymnPage {
-  user: firebase.User;
   form: FormGroup;
   hymn: Hymn;
   arrangement: Arrangement;
@@ -28,12 +28,8 @@ export class EditHymnPage {
   general: OrganStop[];
 
   constructor(public viewCtrl: ViewController, public modal: ModalController,
-    fb: FormBuilder, private db: AngularFireDatabase, private afAuth: AngularFireAuth,
+    fb: FormBuilder, private db: AngularFireDatabase, private auth: AuthProvider,
     navParams: NavParams) {
-    afAuth.authState.subscribe(user => {
-      this.user = user;
-    });
-
     this.form = fb.group({
       number: ['', [Validators.required, CustomValidators.min(1)]],
       title: ['', Validators.required]
@@ -96,8 +92,8 @@ export class EditHymnPage {
     };
     const arrangement: Arrangement = {
       user: {
-        id: this.user.uid,
-        name: this.user.displayName
+        id: this.auth.user.uid,
+        name: this.auth.user.displayName
       },
       pedal: this.pedal,
       swell: this.swell,
@@ -114,8 +110,8 @@ export class EditHymnPage {
   saveArrangement() {
     const arrangement: Arrangement = {
       user: {
-        id: this.user.uid,
-        name: this.user.displayName
+        id: this.auth.user.uid,
+        name: this.auth.user.displayName
       },
       pedal: this.pedal,
       swell: this.swell,
@@ -123,7 +119,7 @@ export class EditHymnPage {
       general: this.general
     };
 
-    if (this.arrangement.user.id === this.user.uid) {
+    if (this.arrangement.user.id === this.auth.user.uid) {
       // Update existing record
       this.db.object(`/hymns/${this.hymn.$key}/arrangements/${this.arrangement.$key}`).set(arrangement);
     } else {

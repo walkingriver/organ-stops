@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ModalController } from 'ionic-angular';
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
-import { Platform } from 'ionic-angular';
-import { Facebook } from '@ionic-native/facebook';
 
 import { RegisterPage } from '../register/register';
 import { AuthProvider } from '../../providers/auth/auth';

@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
 import { AuthProvider } from '../../providers/auth/auth';
 
 @Component({

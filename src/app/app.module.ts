@@ -22,6 +22,7 @@ import { RegisterPage } from '../pages/register/register';
 import { PipesModule } from '../pipes/pipes.module';
 
 import config from './config';
+import { AuthProvider } from '../providers/auth/auth';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import config from './config';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Facebook
+    Facebook,
+    AuthProvider
   ]
 })
 export class AppModule {}

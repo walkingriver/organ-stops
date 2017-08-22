@@ -5,24 +5,19 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Platform } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
+
 import { RegisterPage } from '../register/register';
+import { AuthProvider } from '../../providers/auth/auth';
 
 @Component({
   selector: 'page-user',
   templateUrl: 'user.html'
 })
 export class UserPage {
-  user: firebase.User;
   form: FormGroup;
 
-  pendingCredential: firebase.auth.AuthCredential;
-
-  constructor(private modalCtrl: ModalController, private afAuth: AngularFireAuth, fb: FormBuilder,
-    private facebook: Facebook, private platform: Platform) {
-    afAuth.authState.subscribe(user => {
-      this.user = user;
-    });
-
+  constructor(private modalCtrl: ModalController, fb: FormBuilder,
+    public auth: AuthProvider) {
     this.form = fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -36,21 +31,7 @@ export class UserPage {
       return;
     }
 
-    try {
-      await this.afAuth.auth.sendPasswordResetEmail(email);
-      alert('A password recovery email has been sent.');
-    } catch (error) {
-      switch (error.code) {
-        case 'auth/user-not-found':
-          alert('No user exists with that email address.');
-          break;
-        case 'auth/invalid-email':
-          alert('Please enter a valid email address.');
-          break;
-        default:
-          throw error;
-      }
-    }
+    await this.auth.forgotPassword(email);
   }
 
   register() {
@@ -58,98 +39,23 @@ export class UserPage {
     modal.present();
   }
 
-  private linkAccount() {
-    if (this.pendingCredential) {
-      this.user.linkWithCredential(this.pendingCredential);
-      this.pendingCredential = null;
-    }
-  }
-
   async signInWithEmail() {
-    try {
-      await this.afAuth.auth.signInWithEmailAndPassword(this.form.value.email, this.form.value.password);
-      this.linkAccount();
-    } catch (error) {
-      switch (error.code) {
-        case 'auth/invalid-email':
-          alert('Please enter a valid email address.');
-          break;
-        case 'auth/user-not-found':
-          alert('No user exists with that email address.');
-          break;
-        case 'auth/wrong-password':
-          alert('Your username or password is incorrect');
-          break;
-        default:
-          throw error;
-      }
-    }
+    await this.auth.signInWithEmail(this.form.value.email, this.form.value.password);
   }
 
   async signInWithFacebook() {
-    if (this.platform.is('cordova')) {
-      const res = await this.facebook.login(['email', 'public_profile']);
-      const credential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
-      try {
-        await this.afAuth.auth.signInWithCredential(credential);
-      } catch (error) {
-        this.handleProviderError(error);
-      }
-    } else {
-      await this.signInWithProvider(new firebase.auth.FacebookAuthProvider());
-    }
+    await this.auth.signInWithFacebook();
   }
 
   async signInWithGoogle() {
-    await this.signInWithProvider(new firebase.auth.GoogleAuthProvider());
+    await this.auth.signInWithGoogle();
   }
 
   async signInWithTwitter() {
-    await this.signInWithProvider(new firebase.auth.TwitterAuthProvider());
-  }
-
-  private async signInWithProvider(provider: firebase.auth.AuthProvider) {
-    try {
-      await this.afAuth.auth.signInWithPopup(provider);
-      this.linkAccount();
-    } catch (error) {
-      await this.handleProviderError(error);
-    }
-  }
-
-  private async handleProviderError(error: any) {
-    if (error.code === 'auth/account-exists-with-different-credential') {
-      this.pendingCredential = error.credential;
-      const email = error.email;
-
-      const providers = await this.afAuth.auth.fetchProvidersForEmail(email);
-      const providerId = providers[0]; // Grab primary auth provider
-
-      if (providerId === 'password') {
-        alert('Please sign in with your email address to link this account.');
-      } else {
-        const provider = this.getProviderForProviderId(providerId);
-        alert(`Please sign in with your ${provider} account to link this account.`);
-      }
-    } else {
-      throw error;
-    }
-  }
-
-  private getProviderForProviderId(providerId: string): string {
-    switch (providerId) {
-      case 'google.com':
-        return 'Google';
-      case 'facebook.com':
-        return 'Facebook';
-      case 'twitter.com':
-        return 'Twitter';
-      default:
-        return '';
-    }
+    await this.auth.signInWithTwitter();
   }
 
   signOut() {
-    this.afAuth.auth.signOut();
+    this.auth.signOut();
   }
 }

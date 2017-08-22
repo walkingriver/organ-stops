@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ModalController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { Platform } from 'ionic-angular';
+import { Facebook } from '@ionic-native/facebook';
 import { RegisterPage } from '../register/register';
 
 @Component({
@@ -15,7 +17,8 @@ export class UserPage {
 
   pendingCredential: firebase.auth.AuthCredential;
 
-  constructor(private modalCtrl: ModalController, private afAuth: AngularFireAuth, fb: FormBuilder) {
+  constructor(private modalCtrl: ModalController, private afAuth: AngularFireAuth, fb: FormBuilder,
+    private facebook: Facebook, private platform: Platform) {
     afAuth.authState.subscribe(user => {
       this.user = user;
     });
@@ -84,7 +87,17 @@ export class UserPage {
   }
 
   async signInWithFacebook() {
-    await this.signInWithProvider(new firebase.auth.FacebookAuthProvider());
+    if (this.platform.is('cordova')) {
+      const res = await this.facebook.login(['email', 'public_profile']);
+      const credential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
+      try {
+        await this.afAuth.auth.signInWithCredential(credential);
+      } catch (error) {
+        this.handleProviderError(error);
+      }
+    } else {
+      await this.signInWithProvider(new firebase.auth.FacebookAuthProvider());
+    }
   }
 
   async signInWithGoogle() {

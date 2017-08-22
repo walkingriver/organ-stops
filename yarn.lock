@@ -62,6 +62,10 @@
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@ionic-native/core/-/core-4.1.0.tgz#603610a9b79636d991e612316b14c3c2d3e9bcf3"
 
+"@ionic-native/facebook@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/facebook/-/facebook-4.1.0.tgz#bd33993fb91809491af1a1aea299e68e62b4d890"
+
 "@ionic-native/splash-screen@^4.1.0":
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@ionic-native/splash-screen/-/splash-screen-4.1.0.tgz#9d83d9171088e3eaefdcd3e1a7b25b01431f5935"
@@ -1227,6 +1231,10 @@ cordova-plugin-console@1.0.5:
 cordova-plugin-device@1.1.4:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/cordova-plugin-device/-/cordova-plugin-device-1.1.4.tgz#d5fe74712069d03f6d386ef0bd321b3abd0d38dc"
+
+cordova-plugin-facebook4@^1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-facebook4/-/cordova-plugin-facebook4-1.9.1.tgz#60acb3a026b5eaceb1160e97ab28be6c68192e4f"
 
 cordova-plugin-splashscreen@~4.0.1:
   version "4.0.3"

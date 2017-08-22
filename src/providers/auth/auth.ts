@@ -37,6 +37,11 @@ export class AuthProvider {
     }
   }
 
+  async register(name: string, email: string, password: string) {
+    const user = await this.afAuth.auth.createUserWithEmailAndPassword(email, password) as firebase.User;
+    await user.updateProfile({ displayName: name, photoURL: null });
+  }
+
   private linkAccount() {
     if (this.pendingCredential) {
       this.afUser.linkWithCredential(this.pendingCredential);

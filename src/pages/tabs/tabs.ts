@@ -9,11 +9,11 @@ import { HomePage } from '../home/home';
 })
 export class TabsPage {
 
-  tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = UserPage;
+  tabs = [
+    { root: HomePage, title: 'Songs', icon: 'musical-notes' },
+    { root: UserPage, title: 'User', icon: 'person' },
+    { root: AboutPage, title: 'About', icon: 'information' }
+  ];
 
-  constructor() {
-
-  }
+  constructor() { }
 }

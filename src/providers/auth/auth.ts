@@ -78,11 +78,7 @@ export class AuthProvider {
     if (this.platform.is('cordova')) {
       const res = await this.facebook.login(['email', 'public_profile']);
       const credential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
-      try {
-        await this.afAuth.auth.signInWithCredential(credential);
-      } catch (error) {
-        this.handleProviderError(error);
-      }
+      await this.signInWithCredential(credential);
     } else {
       await this.signInWithProvider(new firebase.auth.FacebookAuthProvider());
     }
@@ -94,6 +90,15 @@ export class AuthProvider {
 
   async signInWithTwitter() {
     await this.signInWithProvider(new firebase.auth.TwitterAuthProvider());
+  }
+
+  private async signInWithCredential(credential: firebase.auth.AuthCredential) {
+    try {
+      await this.afAuth.auth.signInWithCredential(credential);
+      this.linkAccount();
+    } catch (error) {
+      this.handleProviderError(error);
+    }
   }
 
   private async signInWithProvider(provider: firebase.auth.AuthProvider) {

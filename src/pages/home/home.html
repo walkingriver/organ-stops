@@ -19,8 +19,8 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let hymn of hymns | async" (click)="viewHymn(hymn)">
+    <button ion-item *ngFor="let hymn of hymns | async" (click)="viewHymn(hymn)">
       <h2>{{hymn.number}}. {{hymn.title}}</h2>
-    </ion-item>
+    </button>
   </ion-list>
 </ion-content>

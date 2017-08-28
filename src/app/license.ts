@@ -1,6 +1,6 @@
 export interface License {
-    name: string;
-    description: string;
+    name: string | string[];
+    description: string | string[];
     licenses: string;
     repository: string;
 }

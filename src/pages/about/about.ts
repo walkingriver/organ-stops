@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LicenseProvider } from '../../providers/license/license';
 import { License } from '../../app/license';
+import { AcknowledgementsPage } from '../acknowledgements/acknowledgements';
 
 @Component({
   selector: 'page-about',
@@ -10,9 +11,11 @@ import { License } from '../../app/license';
 export class AboutPage {
   licenses: License[];
 
-  constructor(public navCtrl: NavController, private licenseProvider: LicenseProvider) { }
+  constructor(public navCtrl: NavController) { }
 
-  async ionViewDidLoad() {
-    this.licenses = await this.licenseProvider.getLicenses();
+  ionViewDidLoad() { }
+
+  viewAcknowledgements() {
+    this.navCtrl.push(AcknowledgementsPage);
   }
 }

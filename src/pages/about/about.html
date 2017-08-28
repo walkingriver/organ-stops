@@ -7,11 +7,9 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Acknowledgements</h2>
-  <div *ngFor="let license of licenses">
-    {{ license.repository }} <br/>
-    {{ license.name }} <br/>
-    {{ license.licenses }} <br/>
-    {{ license.description }} <br/>
-  </div>
+  <ion-list>
+    <button ion-item (click)="viewAcknowledgements()">
+      Acknowledgements
+    </button>
+  </ion-list>
 </ion-content>

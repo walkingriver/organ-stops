@@ -22,6 +22,7 @@ import { StopsPage } from '../pages/stops/stops';
 import { EditHymnPage } from '../pages/edit-hymn/edit-hymn';
 import { EditStopsPage } from '../pages/edit-stops/edit-stops';
 import { RegisterPage } from '../pages/register/register';
+import { AcknowledgementsPage } from '../pages/acknowledgements/acknowledgements';
 import { PipesModule } from '../pipes/pipes.module';
 
 import config from './config';
@@ -39,7 +40,8 @@ import { LicenseProvider } from '../providers/license/license';
     StopsPage,
     EditHymnPage,
     EditStopsPage,
-    RegisterPage
+    RegisterPage,
+    AcknowledgementsPage
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,8 @@ import { LicenseProvider } from '../providers/license/license';
     StopsPage,
     EditHymnPage,
     EditStopsPage,
-    RegisterPage
+    RegisterPage,
+    AcknowledgementsPage
   ],
   providers: [
     StatusBar,

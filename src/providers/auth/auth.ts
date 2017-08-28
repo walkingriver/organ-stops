@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
+import { TwitterConnect } from '@ionic-native/twitter-connect';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
@@ -13,7 +14,7 @@ export class AuthProvider {
   private pendingCredential: firebase.auth.AuthCredential;
 
   constructor(private afAuth: AngularFireAuth, private platform: Platform, private facebook: Facebook,
-    private googlePlus: GooglePlus) {
+    private googlePlus: GooglePlus, private twitter: TwitterConnect) {
     afAuth.authState.subscribe(user => {
       this.afUser = user;
     });
@@ -91,8 +92,8 @@ export class AuthProvider {
   async signInWithGoogle() {
     if (this.platform.is('cordova')) {
       const res = await this.googlePlus.login({
-          webClientId: config.googlePlus.webClientId
-        });
+        webClientId: config.googlePlus.webClientId
+      });
       const credential = firebase.auth.GoogleAuthProvider.credential(res.idToken);
       await this.signInWithCredential(credential);
     } else {
@@ -101,7 +102,13 @@ export class AuthProvider {
   }
 
   async signInWithTwitter() {
-    await this.signInWithProvider(new firebase.auth.TwitterAuthProvider());
+    if (this.platform.is('cordova')) {
+      const res = await this.twitter.login();
+      const credential = firebase.auth.TwitterAuthProvider.credential(res.token, res.secret);
+      await this.signInWithCredential(credential);
+    } else {
+      await this.signInWithProvider(new firebase.auth.TwitterAuthProvider());
+    }
   }
 
   private async signInWithCredential(credential: firebase.auth.AuthCredential) {

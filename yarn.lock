@@ -66,6 +66,10 @@
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@ionic-native/facebook/-/facebook-4.1.0.tgz#bd33993fb91809491af1a1aea299e68e62b4d890"
 
+"@ionic-native/google-plus@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/google-plus/-/google-plus-4.2.0.tgz#d04ebf2ebf71555f6b461d7df5866bc86f3ab37b"
+
 "@ionic-native/splash-screen@^4.1.0":
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@ionic-native/splash-screen/-/splash-screen-4.1.0.tgz#9d83d9171088e3eaefdcd3e1a7b25b01431f5935"
@@ -1235,6 +1239,10 @@ cordova-plugin-device@1.1.4:
 cordova-plugin-facebook4@^1.9.1:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/cordova-plugin-facebook4/-/cordova-plugin-facebook4-1.9.1.tgz#60acb3a026b5eaceb1160e97ab28be6c68192e4f"
+
+cordova-plugin-googleplus@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-googleplus/-/cordova-plugin-googleplus-5.1.1.tgz#d6c2accef48619ba9d5abcc9783cf31a6af14a1d"
 
 cordova-plugin-splashscreen@~4.0.1:
   version "4.0.3"

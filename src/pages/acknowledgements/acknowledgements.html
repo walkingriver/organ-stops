@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Acknowledgements</h2>
+  <p>This application makes use of the following third-party libraries:</p>
   <ion-list>
     <ion-item text-wrap *ngFor="let license of licenses">
       <ng-container *ngIf="license.name.length else single">
@@ -14,13 +14,12 @@
           <p>{{ license.description[i] }}</p> 
           <br/>
         </div>
-        <a>{{ license.licenses }}</a>
       </ng-container>
       <ng-template #single>
         <h2>{{ license.name }}</h2>
         <p>{{ license.description }}</p>
-        <a>{{ license.licenses }}</a>
       </ng-template>
+      <a [href]="license.licenseUrl" target="_blank">{{ license.licenses }}</a>      
     </ion-item>
   </ion-list>
 </ion-content>

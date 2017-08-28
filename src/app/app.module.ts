@@ -25,6 +25,7 @@ import { PipesModule } from '../pipes/pipes.module';
 
 import config from './config';
 import { AuthProvider } from '../providers/auth/auth';
+import { LicenseProvider } from '../providers/license/license';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { AuthProvider } from '../providers/auth/auth';
     Facebook,
     AuthProvider,
     GooglePlus,
-    TwitterConnect
+    TwitterConnect,
+    LicenseProvider
   ]
 })
 export class AppModule {}

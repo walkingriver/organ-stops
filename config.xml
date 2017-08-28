@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.walkingriver.organstops" version="0.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>LDS Organ Stops</name>
-    <description>An awesome Ionic/Cordova app.</description>
+    <description>An application that allows users to view and share organ registrations for a variety of songs and hymns</description>
     <author email="benj.callaghan@gmail.com" href="http://www.walkingriver.com/">Walking River Software</author>
     <content src="index.html" />
     <access origin="*" />

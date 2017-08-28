@@ -4,6 +4,7 @@ import { LicenseProvider } from '../../providers/license/license';
 import { License } from '../../app/license';
 import { AcknowledgementsPage } from '../acknowledgements/acknowledgements';
 import { PrivacyPage } from '../privacy/privacy';
+import { TermsPage } from '../terms/terms';
 
 @Component({
   selector: 'page-about',
@@ -15,6 +16,10 @@ export class AboutPage {
   constructor(public navCtrl: NavController) { }
 
   ionViewDidLoad() { }
+
+  viewTerms() {
+    this.navCtrl.push(TermsPage);
+  }
 
   viewPrivacyPolicy() {
     this.navCtrl.push(PrivacyPage);

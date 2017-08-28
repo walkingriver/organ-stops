@@ -23,6 +23,7 @@ import { EditHymnPage } from '../pages/edit-hymn/edit-hymn';
 import { EditStopsPage } from '../pages/edit-stops/edit-stops';
 import { RegisterPage } from '../pages/register/register';
 import { PrivacyPage } from '../pages/privacy/privacy';
+import { TermsPage } from '../pages/terms/terms';
 import { AcknowledgementsPage } from '../pages/acknowledgements/acknowledgements';
 import { PipesModule } from '../pipes/pipes.module';
 
@@ -43,7 +44,8 @@ import { LicenseProvider } from '../providers/license/license';
     EditStopsPage,
     RegisterPage,
     AcknowledgementsPage,
-    PrivacyPage
+    PrivacyPage,
+    TermsPage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,8 @@ import { LicenseProvider } from '../providers/license/license';
     EditStopsPage,
     RegisterPage,
     AcknowledgementsPage,
-    PrivacyPage
+    PrivacyPage,
+    TermsPage
   ],
   providers: [
     StatusBar,

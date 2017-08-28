@@ -82,6 +82,7 @@
     <allow-navigation href="http://192.168.15.104:8100" />
     <preference name="TwitterConsumerKey" value="2UZl0kjinQUJK63iUSSRiRMXd" />
     <preference name="TwitterConsumerSecret" value="tRX60LUrnT34FvQPXbwCdnQp6XEuRQSvchKlKkilHmox3k5Ok7" />
+    <engine name="android" spec="^6.2.3" />
     <engine name="ios" spec="^4.4.0" />
     <plugin name="cordova-plugin-console" spec="1.0.5" />
     <plugin name="cordova-plugin-device" spec="1.1.4" />

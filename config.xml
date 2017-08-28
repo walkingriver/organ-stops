@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.walkingriver.organstops" version="0.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>LDS Organ Stops</name>
+    <name>Organ Stops</name>
     <description>An application that allows users to view and share organ registrations for a variety of songs and hymns</description>
     <author email="benj.callaghan@gmail.com" href="http://www.walkingriver.com/">Walking River Software</author>
     <content src="index.html" />
@@ -83,8 +83,6 @@
     <allow-navigation href="http://192.168.15.104:8100" />
     <preference name="TwitterConsumerKey" value="2UZl0kjinQUJK63iUSSRiRMXd" />
     <preference name="TwitterConsumerSecret" value="tRX60LUrnT34FvQPXbwCdnQp6XEuRQSvchKlKkilHmox3k5Ok7" />
-    <engine name="android" spec="^6.2.3" />
-    <engine name="ios" spec="^4.4.0" />
     <plugin name="cordova-plugin-console" spec="1.0.5" />
     <plugin name="cordova-plugin-device" spec="1.1.4" />
     <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
@@ -101,4 +99,6 @@
     <plugin name="twitter-connect-plugin" spec="^0.6.0">
         <variable name="FABRIC_KEY" value="d8c1fa450c49efbb593257ddcda52af2eff68fe9" />
     </plugin>
+    <engine name="android" spec="^6.2.3" />
+    <engine name="ios" spec="^4.4.0" />
 </widget>

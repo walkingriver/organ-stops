@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -48,7 +49,8 @@ import { LicenseProvider } from '../providers/license/license';
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
-    PipesModule
+    PipesModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

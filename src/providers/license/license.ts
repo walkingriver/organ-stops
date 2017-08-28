@@ -18,7 +18,7 @@ export class LicenseProvider {
 
   private licenseFromGroup(group: any, repository: string) {
     const license: License = {
-      name: _(group).map('name').join(','),
+      name: _(group).map('name').uniqBy(x => x).join(','),
       description: '',
       licenses: _(group).map('licenses').uniqBy(x => x).join(','),
       repository: repository

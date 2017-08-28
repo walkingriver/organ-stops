@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
+import { GooglePlus } from '@ionic-native/google-plus';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+
+import config from '../../app/config';
 
 @Injectable()
 export class AuthProvider {
   private afUser: firebase.User;
   private pendingCredential: firebase.auth.AuthCredential;
 
-  constructor(private afAuth: AngularFireAuth, private platform: Platform, private facebook: Facebook) {
+  constructor(private afAuth: AngularFireAuth, private platform: Platform, private facebook: Facebook,
+    private googlePlus: GooglePlus) {
     afAuth.authState.subscribe(user => {
       this.afUser = user;
     });
@@ -85,7 +89,15 @@ export class AuthProvider {
   }
 
   async signInWithGoogle() {
-    await this.signInWithProvider(new firebase.auth.GoogleAuthProvider());
+    if (this.platform.is('cordova')) {
+      const res = await this.googlePlus.login({
+          webClientId: config.googlePlus.webClientId
+        });
+      const credential = firebase.auth.GoogleAuthProvider.credential(res.idToken);
+      await this.signInWithCredential(credential);
+    } else {
+      await this.signInWithProvider(new firebase.auth.GoogleAuthProvider());
+    }
   }
 
   async signInWithTwitter() {

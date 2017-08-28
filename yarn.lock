@@ -78,6 +78,10 @@
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@ionic-native/status-bar/-/status-bar-4.1.0.tgz#90ce50b3552c4cc465513e563233cc1c64805552"
 
+"@ionic-native/twitter-connect@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/twitter-connect/-/twitter-connect-4.2.0.tgz#dd76e4ef2e589e4a526a3e846b01e82c1ce9bca6"
+
 "@ionic/app-scripts@^2.1.4":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@ionic/app-scripts/-/app-scripts-2.1.4.tgz#832fbfaad23e826773bdb071bf63416f4ce404de"
@@ -4420,6 +4424,10 @@ tunnel-agent@^0.6.0:
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
+
+twitter-connect-plugin@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/twitter-connect-plugin/-/twitter-connect-plugin-0.6.0.tgz#52e456277ca1c34b7a956bea0f0ee8458ddb6ab8"
 
 type-is@~1.6.15:
   version "1.6.15"

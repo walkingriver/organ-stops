@@ -9,6 +9,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { Facebook } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
+import { TwitterConnect } from '@ionic-native/twitter-connect';
 
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
@@ -67,7 +68,8 @@ import { AuthProvider } from '../providers/auth/auth';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Facebook,
     AuthProvider,
-    GooglePlus
+    GooglePlus,
+    TwitterConnect
   ]
 })
 export class AppModule {}

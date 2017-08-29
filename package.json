@@ -76,7 +76,7 @@
             "ionic-plugin-keyboard": {},
             "cordova-plugin-facebook4": {
                 "APP_ID": "1909169282633816",
-                "APP_NAME": "LDS Organ Stops"
+                "APP_NAME": "Organ Stops"
             },
             "cordova-plugin-googleplus": {
                 "REVERSED_CLIENT_ID": "com.googleusercontent.apps.590593553203-379dnht77kkousn6u5cm648a0hit4o3p"

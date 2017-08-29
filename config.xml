@@ -89,7 +89,7 @@
     <plugin name="cordova-plugin-device" spec="1.1.4" />
     <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
         <variable name="APP_ID" value="1909169282633816" />
-        <variable name="APP_NAME" value="LDS Organ Stops" />
+        <variable name="APP_NAME" value="Organ Stops" />
     </plugin>
     <plugin name="cordova-plugin-googleplus" spec="^5.1.1">
         <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.590593553203-379dnht77kkousn6u5cm648a0hit4o3p" />

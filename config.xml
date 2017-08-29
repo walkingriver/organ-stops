@@ -83,6 +83,8 @@
     <allow-navigation href="http://192.168.15.104:8100" />
     <preference name="TwitterConsumerKey" value="2UZl0kjinQUJK63iUSSRiRMXd" />
     <preference name="TwitterConsumerSecret" value="tRX60LUrnT34FvQPXbwCdnQp6XEuRQSvchKlKkilHmox3k5Ok7" />
+    <engine name="android" spec="^6.2.3" />
+    <engine name="ios" spec="^4.4.0" />
     <plugin name="cordova-plugin-console" spec="1.0.5" />
     <plugin name="cordova-plugin-device" spec="1.1.4" />
     <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
@@ -99,6 +101,4 @@
     <plugin name="twitter-connect-plugin" spec="^0.6.0">
         <variable name="FABRIC_KEY" value="d8c1fa450c49efbb593257ddcda52af2eff68fe9" />
     </plugin>
-    <engine name="android" spec="^6.2.3" />
-    <engine name="ios" spec="^4.4.0" />
 </widget>

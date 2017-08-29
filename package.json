@@ -11,7 +11,11 @@
         "build": "ionic-app-scripts build",
         "lint": "ionic-app-scripts lint",
         "ionic:build": "ionic-app-scripts build",
-        "ionic:serve": "ionic-app-scripts serve"
+        "ionic:serve": "ionic-app-scripts serve",
+        "build:apk": "yarn run build:android && yarn run align:android && yarn run sign:android",
+        "build:android": "ionic cordova build android --prod --release",
+        "align:android": "zipalign -f 4 platforms/android/build/outputs/apk/android-release-unsigned.apk platforms/android/build/outputs/apk/android-release-aligned.apk",
+        "sign:android": "apksigner sign --ks ../wr.keystore --out releases/android/organ-stops.apk platforms/android/build/outputs/apk/android-release-aligned.apk"
     },
     "dependencies": {
         "@angular/common": "^4.3.5",

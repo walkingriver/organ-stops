@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget ios-CFBundleIdentifier="com.walkingriver.organ-stops" android-packageName="com.walkingriver.organstops" version="0.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget ios-CFBundleIdentifier="com.walkingriver.organ-stops" android-packageName="com.walkingriver.organstops" version="0.1.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Organ Stops</name>
     <description>View and share organ registrations for a variety of songs and hymns</description>
     <author email="benj.callaghan@gmail.com" href="http://www.walkingriver.com/">Walking River Software</author>

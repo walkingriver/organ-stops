@@ -12,7 +12,7 @@
         "lint": "ionic-app-scripts lint",
         "ionic:build": "ionic-app-scripts build",
         "ionic:serve": "ionic-app-scripts serve",
-        "build:android": "yarn run build:android && yarn run align:android && yarn run sign:android",
+        "build:android": "yarn run build:apk && yarn run align:apk && yarn run sign:apk",
         "build:apk": "ionic cordova build android --release",
         "align:apk": "zipalign -f 4 platforms/android/build/outputs/apk/android-release-unsigned.apk platforms/android/build/outputs/apk/android-release-aligned.apk",
         "sign:apk": "apksigner sign --ks ../wr.keystore --out releases/android/organ-stops.apk platforms/android/build/outputs/apk/android-release-aligned.apk"

@@ -1,20 +1,28 @@
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserPage } from './user.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { UserPageRoutingModule } from './user-routing.module';
+import { FirebaseUIModule } from '../firebaseui-angular/firebaseui-angular-library.module';
+
+let globalRouter: Router;
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
-    FormsModule,
-    ExploreContainerComponentModule,
-    UserPageRoutingModule
+    UserPageRoutingModule,
+    FirebaseUIModule.forFeature({
+      tosUrl: () => globalRouter.navigate(['/tabs/user/terms']),
+      privacyPolicyUrl: () => globalRouter.navigate(['/tabs/user/privacy']),
+    }),
   ],
-  declarations: [UserPage]
+  declarations: [UserPage],
 })
-export class Tab2PageModule {}
+export class UserPageModule {
+  constructor(router: Router) {
+    globalRouter = router;
+  }
+}

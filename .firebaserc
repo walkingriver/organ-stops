@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "lds-organ-stops": {
+      "hosting": {
+        "app": [
+          "lds-organ-stops"
+        ]
+      }
+    }
+  }
+}

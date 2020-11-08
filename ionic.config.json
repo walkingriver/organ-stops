@@ -1,8 +1,0 @@
-{
-  "name": "organ-stops",
-  "app_id": "2548f2ad",
-  "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
-}

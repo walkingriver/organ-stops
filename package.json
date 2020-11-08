@@ -1,6 +1,6 @@
 {
   "name": "organ-stops",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "An application that allows users to view and share organ registrations for a variety of songs and hymns",
   "homepage": "https://github.com/benjcallaghan/organ-stops#readme",
   "bugs": {

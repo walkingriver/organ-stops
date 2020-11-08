@@ -1,0 +1,7 @@
+{
+  "name": "organ-stops",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,46 @@
+<ng-container *ngIf="hymn$ | async as hymn">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/songs"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{ hymn.title }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-slides pager="true" style="height: 100%">
+      <ion-slide *ngFor="let arrangement of hymn.arrangements | keyvalue" class="ion-align-items-start">
+        <ion-list style="width: 100%">
+          <ion-list-header>
+            <ion-label>Uploaded by {{ arrangement.value.user.name }}</ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              <h2>Pedal</h2>
+              <p>{{ stopsFor(arrangement.value.pedal) }}</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              <h2>Swell</h2>
+              <p>{{ stopsFor(arrangement.value.swell) }}</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              <h2>Great</h2>
+              <p>{{ stopsFor(arrangement.value.great) }}</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              <h2>General</h2>
+              <p>{{ stopsFor(arrangement.value.general) }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-slide>
+    </ion-slides>
+  </ion-content>
+</ng-container>

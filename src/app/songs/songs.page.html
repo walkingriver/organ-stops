@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="new">
+        <ion-icon slot="icon-only" name="create"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-segment slot="end" (ionChange)="sortBy$.next($event.detail.value)">
+      <ion-segment-button value="number">Number</ion-segment-button>
+      <ion-segment-button value="title">Title</ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let hymn of hymns$ | async" [routerLink]="hymn.key">
+      <ion-note slot="start">{{ hymn.payload.val().number }}</ion-note>
+      <ion-label>{{ hymn.payload.val().title }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

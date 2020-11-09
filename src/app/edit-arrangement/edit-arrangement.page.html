@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="cancel()"> Cancel </ion-button>
+    </ion-buttons>
+    <ion-title>Edit Stops</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="save()"> Save </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-divider [sticky]="true">
+      <ion-label>Pedal</ion-label>
+    </ion-item-divider>
+    <ion-item *ngFor="let stop of arrangement.pedal">
+      <ion-label>{{ stop.name }}</ion-label>
+      <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
+    </ion-item>
+
+    <ion-item-divider [sticky]="true">
+      <ion-label>Swell</ion-label>
+    </ion-item-divider>
+    <ion-item *ngFor="let stop of arrangement.swell">
+      <ion-label>{{ stop.name }}</ion-label>
+      <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
+    </ion-item>
+
+    <ion-item-divider [sticky]="true">
+      <ion-label>Great</ion-label>
+    </ion-item-divider>
+    <ion-item *ngFor="let stop of arrangement.great">
+      <ion-label>{{ stop.name }}</ion-label>
+      <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
+    </ion-item>
+
+    <ion-item-divider [sticky]="true">
+      <ion-label>General</ion-label>
+    </ion-item-divider>
+    <ion-item *ngFor="let stop of arrangement.general">
+      <ion-label>{{ stop.name }}</ion-label>
+      <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -10,7 +10,10 @@
 
   <ion-content>
     <ion-slides pager="true" style="height: 100%">
-      <ion-slide *ngFor="let arrangement of hymn.arrangements | keyvalue" class="ion-align-items-start">
+      <ion-slide
+        *ngFor="let arrangement of hymn.arrangements | keyvalue"
+        class="ion-align-items-start"
+      >
         <ion-list style="width: 100%">
           <ion-list-header>
             <ion-label>Uploaded by {{ arrangement.value.user.name }}</ion-label>
@@ -39,6 +42,7 @@
               <p>{{ stopsFor(arrangement.value.general) }}</p>
             </ion-label>
           </ion-item>
+          <ion-button expand="block" class="ion-margin-horizontal" (click)="customize(arrangement)">Customize</ion-button>
         </ion-list>
       </ion-slide>
     </ion-slides>

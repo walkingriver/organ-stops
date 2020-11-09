@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
-import { Hymn, OrganStop } from '../hymn';
+import { ModalController } from '@ionic/angular';
+import { defer, Observable, zip } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
+import { EditArrangementPage } from '../edit-arrangement/edit-arrangement.page';
+import { Arrangement, Hymn, OrganStop } from '../hymn';
+import firebase from 'firebase/app';
 
 @Component({
   selector: 'app-hymn',
@@ -11,12 +15,21 @@ import { Hymn, OrganStop } from '../hymn';
   styleUrls: ['./hymn.page.scss'],
 })
 export class HymnPage {
+  hymnKey$: Observable<string>;
+  user$: Observable<firebase.User>;
   hymn$: Observable<Hymn>;
 
-  constructor(db: AngularFireDatabase, route: ActivatedRoute) {
-    this.hymn$ = route.params.pipe(
-      switchMap((params) =>
-        db.object<Hymn>(`/hymns/${params.key}`).valueChanges()
+  constructor(
+    private db: AngularFireDatabase,
+    auth: AngularFireAuth,
+    route: ActivatedRoute,
+    private modalController: ModalController
+  ) {
+    this.hymnKey$ = route.params.pipe(map((params) => params.key));
+    this.user$ = auth.user;
+    this.hymn$ = this.hymnKey$.pipe(
+      switchMap((hymnKey) =>
+        db.object<Hymn>(`/hymns/${hymnKey}`).valueChanges()
       )
     );
   }
@@ -26,5 +39,31 @@ export class HymnPage {
       .filter((stop) => stop.enabled)
       .map((stop) => stop.name)
       .join(', ');
+  }
+
+  customize(arrangement: { key: string; value: Arrangement }) {
+    const data$ = defer(async () => {
+      const modal = await this.modalController.create({
+        component: EditArrangementPage,
+        componentProps: {
+          arrangement: arrangement.value,
+        },
+      });
+      await modal.present();
+
+      const { data } = await modal.onDidDismiss<Arrangement>();
+      return data;
+    });
+
+    zip(data$, this.user$, this.hymnKey$).subscribe(([data, user, hymnKey]) => {
+      if (data && data.user.id === user.uid) {
+        this.db
+          .object(`/hymns/${hymnKey}/arrangements/${arrangement.key}`)
+          .set(data);
+      } else if (data) {
+        data.user = { id: user.uid, name: user.displayName };
+        this.db.list(`/hymns/${hymnKey}/arrangements`).push(data);
+      }
+    });
   }
 }

@@ -1,17 +1,34 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="secondary">
-      <ion-button (click)="cancel()"> Cancel </ion-button>
+      <ion-button (click)="cancel()">Cancel</ion-button>
     </ion-buttons>
     <ion-title>Edit Stops</ion-title>
     <ion-buttons slot="primary">
-      <ion-button (click)="save()"> Save </ion-button>
+      <ion-button (click)="save()">Save</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
+    <ion-item>
+      <ion-label position="floating">Number</ion-label>
+      <ion-input
+        type="number"
+        [(ngModel)]="hymn.number"
+        [readonly]="readonly"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Title</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="hymn.title"
+        [readonly]="readonly"
+      ></ion-input>
+    </ion-item>
+
     <ion-item-divider [sticky]="true">
       <ion-label>Pedal</ion-label>
     </ion-item-divider>

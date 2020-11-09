@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Arrangement } from '../hymn';
+import { Arrangement, Hymn } from '../hymn';
 
 @Component({
   selector: 'app-edit-arrangement',
@@ -8,17 +8,24 @@ import { Arrangement } from '../hymn';
   styleUrls: ['./edit-arrangement.page.scss'],
 })
 export class EditArrangementPage implements OnInit {
+  @Input() hymn: Hymn;
   @Input() arrangement: Arrangement;
+  readonly: boolean;
 
   constructor(private modalController: ModalController) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.readonly = !!this.hymn.title;
+  }
 
   cancel() {
     this.modalController.dismiss();
   }
 
   save() {
-    this.modalController.dismiss(this.arrangement);
+    this.modalController.dismiss({
+      hymn: this.hymn,
+      arrangement: this.arrangement,
+    });
   }
 }

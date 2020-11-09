@@ -42,7 +42,13 @@
               <p>{{ stopsFor(arrangement.value.general) }}</p>
             </ion-label>
           </ion-item>
-          <ion-button expand="block" class="ion-margin-horizontal" (click)="customize(arrangement)">Customize</ion-button>
+          <ion-button
+            expand="block"
+            class="ion-margin-horizontal"
+            (click)="customize(hymn, arrangement)"
+          >
+            Customize
+          </ion-button>
         </ion-list>
       </ion-slide>
     </ion-slides>

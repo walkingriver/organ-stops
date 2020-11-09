@@ -41,18 +41,19 @@ export class HymnPage {
       .join(', ');
   }
 
-  customize(arrangement: { key: string; value: Arrangement }) {
+  customize(hymn: Hymn, arrangement: { key: string; value: Arrangement }) {
     const data$ = defer(async () => {
       const modal = await this.modalController.create({
         component: EditArrangementPage,
         componentProps: {
+          hymn,
           arrangement: arrangement.value,
         },
       });
       await modal.present();
 
-      const { data } = await modal.onDidDismiss<Arrangement>();
-      return data;
+      const { data } = await modal.onDidDismiss<{ arrangement: Arrangement }>();
+      return data?.arrangement;
     });
 
     zip(data$, this.user$, this.hymnKey$).subscribe(([data, user, hymnKey]) => {

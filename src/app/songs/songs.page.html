@@ -5,7 +5,7 @@
         <ion-icon slot="icon-only" name="create"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-segment slot="end" (ionChange)="sortBy$.next($event.detail.value)">
+    <ion-segment slot="end" value="number">
       <ion-segment-button value="number">Number</ion-segment-button>
       <ion-segment-button value="title">Title</ion-segment-button>
     </ion-segment>

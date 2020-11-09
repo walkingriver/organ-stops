@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { AngularFireDatabase, SnapshotAction } from '@angular/fire/database';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { IonSegment } from '@ionic/angular';
+import { fromEvent, Observable } from 'rxjs';
+import { map, startWith, switchMap } from 'rxjs/operators';
 import { Hymn } from '../hymn';
 
 @Component({
@@ -9,14 +10,21 @@ import { Hymn } from '../hymn';
   templateUrl: 'songs.page.html',
   styleUrls: ['songs.page.scss'],
 })
-export class SongsPage {
+export class SongsPage implements AfterViewInit {
+  @ViewChild(IonSegment, { read: ElementRef }) sortSegment: ElementRef;
   hymns$: Observable<SnapshotAction<Hymn>[]>;
-  sortBy$ = new BehaviorSubject<string>('number');
 
-  constructor(db: AngularFireDatabase) {
-    this.hymns$ = this.sortBy$.pipe(
+  constructor(private db: AngularFireDatabase) {}
+
+  ngAfterViewInit() {
+    this.hymns$ = fromEvent<CustomEvent>(
+      this.sortSegment.nativeElement,
+      'ionChange'
+    ).pipe(
+      map((event) => event.detail.value),
+      startWith('number'),
       switchMap((sortBy) =>
-        db
+        this.db
           .list<Hymn>('/hymns', (ref) => ref.orderByChild(sortBy))
           .snapshotChanges()
       )

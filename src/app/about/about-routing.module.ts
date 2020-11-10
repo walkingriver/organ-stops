@@ -17,6 +17,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('../privacy/privacy.module').then((m) => m.PrivacyPageModule),
   },
+  {
+    path: 'acknowledgements',
+    loadChildren: () =>
+      import('../acknowledgements/acknowledgements.module').then(
+        (m) => m.AcknowledgementsPageModule
+      ),
+  },
 ];
 
 @NgModule({

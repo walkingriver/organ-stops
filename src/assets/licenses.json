@@ -1,0 +1,643 @@
+{
+  "@angular/common@10.2.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/angular/angular",
+    "name": "@angular/common"
+  },
+  "@angular/compiler@10.2.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/angular/angular",
+    "name": "@angular/compiler"
+  },
+  "@angular/core@10.2.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/angular/angular",
+    "name": "@angular/core"
+  },
+  "@angular/fire@6.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/angular/angularfire2",
+    "name": "@angular/fire"
+  },
+  "@angular/forms@10.2.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/angular/angular",
+    "name": "@angular/forms"
+  },
+  "@angular/platform-browser-dynamic@10.2.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/angular/angular",
+    "name": "@angular/platform-browser-dynamic"
+  },
+  "@angular/platform-browser@10.2.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/angular/angular",
+    "name": "@angular/platform-browser"
+  },
+  "@angular/router@10.2.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/angular/angular",
+    "name": "@angular/router"
+  },
+  "@capacitor/core@2.4.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ionic-team/capacitor",
+    "url": "https://ionicframework.com",
+    "name": "@capacitor/core",
+    "copyright": "Copyright 2015-present Drifty Co.. http://drifty.com/"
+  },
+  "@firebase/analytics-types@0.4.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/analytics-types"
+  },
+  "@firebase/analytics@0.6.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/analytics"
+  },
+  "@firebase/app-types@0.6.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/app-types"
+  },
+  "@firebase/app@0.6.13": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/app"
+  },
+  "@firebase/auth-interop-types@0.1.5": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/auth-interop-types"
+  },
+  "@firebase/auth-types@0.10.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/auth-types"
+  },
+  "@firebase/auth@0.15.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/auth"
+  },
+  "@firebase/component@0.1.21": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/component"
+  },
+  "@firebase/database-types@0.6.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/database-types"
+  },
+  "@firebase/database@0.7.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/database"
+  },
+  "@firebase/firestore-types@2.0.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/firestore-types"
+  },
+  "@firebase/firestore@2.0.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/firestore"
+  },
+  "@firebase/functions-types@0.4.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/functions-types"
+  },
+  "@firebase/functions@0.6.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/functions"
+  },
+  "@firebase/installations-types@0.3.4": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/installations-types"
+  },
+  "@firebase/installations@0.4.19": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/installations"
+  },
+  "@firebase/logger@0.2.6": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/logger"
+  },
+  "@firebase/messaging-types@0.5.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/messaging-types"
+  },
+  "@firebase/messaging@0.7.3": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/messaging"
+  },
+  "@firebase/performance-types@0.0.13": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/performance-types"
+  },
+  "@firebase/performance@0.4.4": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/performance"
+  },
+  "@firebase/polyfill@0.3.36": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/polyfill"
+  },
+  "@firebase/remote-config-types@0.1.9": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/remote-config-types"
+  },
+  "@firebase/remote-config@0.1.30": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/remote-config"
+  },
+  "@firebase/storage-types@0.3.13": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/storage-types"
+  },
+  "@firebase/storage@0.4.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/storage"
+  },
+  "@firebase/util@0.3.4": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/util"
+  },
+  "@firebase/webchannel-wrapper@0.4.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "@firebase/webchannel-wrapper"
+  },
+  "@grpc/grpc-js@1.1.8": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/grpc/grpc-node/tree/master/packages/grpc-js",
+    "name": "@grpc/grpc-js"
+  },
+  "@grpc/proto-loader@0.5.5": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/grpc/grpc-node",
+    "name": "@grpc/proto-loader"
+  },
+  "@ionic-native/core@5.29.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ionic-team/ionic-native",
+    "name": "@ionic-native/core"
+  },
+  "@ionic-native/splash-screen@5.29.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ionic-team/ionic-native",
+    "name": "@ionic-native/splash-screen"
+  },
+  "@ionic-native/status-bar@5.29.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ionic-team/ionic-native",
+    "name": "@ionic-native/status-bar"
+  },
+  "@ionic/angular@5.4.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ionic-team/ionic",
+    "name": "@ionic/angular"
+  },
+  "@ionic/core@5.4.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ionic-team/ionic",
+    "name": "@ionic/core",
+    "copyright": "Copyright 2015-present Drifty Co.. http://drifty.com/"
+  },
+  "@protobufjs/aspromise@1.1.2": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "name": "@protobufjs/aspromise",
+    "copyright": "Copyright (c) 2016, Daniel Wirtz  All rights reserved."
+  },
+  "@protobufjs/base64@1.1.2": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "name": "@protobufjs/base64",
+    "copyright": "Copyright (c) 2016, Daniel Wirtz  All rights reserved."
+  },
+  "@protobufjs/codegen@2.0.4": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "name": "@protobufjs/codegen",
+    "copyright": "Copyright (c) 2016, Daniel Wirtz  All rights reserved."
+  },
+  "@protobufjs/eventemitter@1.1.0": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "name": "@protobufjs/eventemitter",
+    "copyright": "Copyright (c) 2016, Daniel Wirtz  All rights reserved."
+  },
+  "@protobufjs/fetch@1.1.0": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "name": "@protobufjs/fetch",
+    "copyright": "Copyright (c) 2016, Daniel Wirtz  All rights reserved."
+  },
+  "@protobufjs/float@1.0.2": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "name": "@protobufjs/float",
+    "copyright": "Copyright (c) 2016, Daniel Wirtz  All rights reserved."
+  },
+  "@protobufjs/inquire@1.1.0": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "name": "@protobufjs/inquire",
+    "copyright": "Copyright (c) 2016, Daniel Wirtz  All rights reserved."
+  },
+  "@protobufjs/path@1.1.2": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "name": "@protobufjs/path",
+    "copyright": "Copyright (c) 2016, Daniel Wirtz  All rights reserved."
+  },
+  "@protobufjs/pool@1.1.0": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "name": "@protobufjs/pool",
+    "copyright": "Copyright (c) 2016, Daniel Wirtz  All rights reserved."
+  },
+  "@protobufjs/utf8@1.1.0": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "name": "@protobufjs/utf8",
+    "copyright": "Copyright (c) 2016, Daniel Wirtz  All rights reserved."
+  },
+  "@types/cordova@0.0.34": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "name": "@types/cordova"
+  },
+  "@types/long@4.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "name": "@types/long"
+  },
+  "@types/node@14.14.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "name": "@types/node"
+  },
+  "abort-controller@3.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mysticatea/abort-controller",
+    "url": "https://github.com/mysticatea",
+    "name": "abort-controller",
+    "copyright": "Copyright (c) 2017 Toru Nagashima"
+  },
+  "agent-base@4.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/TooTallNate/node-agent-base",
+    "url": "http://n8.io/",
+    "name": "agent-base",
+    "copyright": "Copyright (c) 2013 Nathan Rajlich &lt;nathan@tootallnate.net&gt;"
+  },
+  "arrify@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/arrify",
+    "url": "sindresorhus.com",
+    "name": "arrify",
+    "copyright": "Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)"
+  },
+  "base64-js@1.3.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/beatgammit/base64-js",
+    "name": "base64-js",
+    "copyright": "Copyright (c) 2014 Jameson Little"
+  },
+  "bignumber.js@9.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/MikeMcl/bignumber.js",
+    "name": "bignumber.js",
+    "copyright": "Copyright © `<2020>` `Michael Mclaughlin`"
+  },
+  "buffer-equal-constant-time@1.0.1": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/goinstant/buffer-equal-constant-time",
+    "name": "buffer-equal-constant-time",
+    "copyright": "Copyright (c) 2013, GoInstant Inc., a salesforce.com company. All rights reserved."
+  },
+  "core-js@3.6.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/zloirock/core-js",
+    "name": "core-js",
+    "copyright": "Copyright (c) 2014-2020 Denis Pushkarev"
+  },
+  "debug@4.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/visionmedia/debug",
+    "name": "debug",
+    "copyright": "Copyright (c) 2014 TJ Holowaychuk <tj@vision-media.ca>"
+  },
+  "dialog-polyfill@0.4.10": {
+    "licenses": "BSD*",
+    "repository": "https://github.com/GoogleChrome/dialog-polyfill",
+    "name": "dialog-polyfill"
+  },
+  "dom-storage@2.1.0": {
+    "licenses": "MIT*",
+    "repository": "git://git.coolaj86.com/coolaj86/dom-storage.js",
+    "url": "https://coolaj86.com",
+    "name": "dom-storage"
+  },
+  "ecdsa-sig-formatter@1.0.11": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/Brightspace/node-ecdsa-sig-formatter",
+    "name": "ecdsa-sig-formatter"
+  },
+  "es6-promise@4.2.8": {
+    "licenses": "MIT",
+    "repository": "https://github.com/stefanpenner/es6-promise",
+    "url": "Conversion to ES6 API by Jake Archibald",
+    "name": "es6-promise",
+    "copyright": "Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors"
+  },
+  "es6-promisify@5.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/digitaldesignlabs/es6-promisify",
+    "name": "es6-promisify"
+  },
+  "event-target-shim@5.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mysticatea/event-target-shim",
+    "name": "event-target-shim",
+    "copyright": "Copyright (c) 2015 Toru Nagashima"
+  },
+  "extend@3.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/justmoon/node-extend",
+    "url": "http://www.justmoon.net",
+    "name": "extend",
+    "copyright": "Copyright (c) 2014 Stefan Thomas"
+  },
+  "fast-text-encoding@1.0.3": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/samthor/fast-text-encoding",
+    "name": "fast-text-encoding"
+  },
+  "faye-websocket@0.10.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/faye/faye-websocket-node",
+    "url": "http://jcoglan.com/",
+    "name": "faye-websocket",
+    "copyright": "Copyright (c) 2010-2015 James Coglan"
+  },
+  "firebase@8.0.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebase-js-sdk",
+    "url": "https://firebase.google.com/",
+    "name": "firebase"
+  },
+  "firebaseui@4.7.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/firebase/firebaseui-web",
+    "name": "firebaseui"
+  },
+  "gaxios@4.0.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/googleapis/gaxios",
+    "name": "gaxios"
+  },
+  "gcp-metadata@4.2.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/googleapis/gcp-metadata",
+    "name": "gcp-metadata"
+  },
+  "google-auth-library@6.1.3": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/googleapis/google-auth-library-nodejs",
+    "name": "google-auth-library"
+  },
+  "google-p12-pem@3.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/google/google-p12-pem",
+    "name": "google-p12-pem",
+    "copyright": "Copyright (c) 2014 Ryan Seys"
+  },
+  "gtoken@5.0.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/google/node-gtoken",
+    "name": "gtoken",
+    "copyright": "Copyright (c) 2014 Ryan Seys"
+  },
+  "https-proxy-agent@2.2.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/TooTallNate/node-https-proxy-agent",
+    "url": "http://n8.io/",
+    "name": "https-proxy-agent",
+    "copyright": "Copyright (c) 2013 Nathan Rajlich &lt;nathan@tootallnate.net&gt;"
+  },
+  "idb@3.0.2": {
+    "licenses": "ISC",
+    "repository": "https://github.com/jakearchibald/indexeddb-promised",
+    "name": "idb"
+  },
+  "ionicons@5.2.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ionic-team/ionicons",
+    "url": "https://twitter.com/benjsperry",
+    "name": "ionicons",
+    "copyright": "Copyright (c) 2015-present Ionic (http://ionic.io/)"
+  },
+  "is-stream@1.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/is-stream",
+    "url": "sindresorhus.com",
+    "name": "is-stream",
+    "copyright": "Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)"
+  },
+  "json-bigint@1.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sidorares/json-bigint",
+    "name": "json-bigint",
+    "copyright": "Copyright (c) 2013 Andrey Sidorov"
+  },
+  "jwa@2.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/brianloveswords/node-jwa",
+    "name": "jwa",
+    "copyright": "Copyright (c) 2013 Brian J. Brennan"
+  },
+  "jws@4.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/brianloveswords/node-jws",
+    "name": "jws",
+    "copyright": "Copyright (c) 2013 Brian J. Brennan"
+  },
+  "lodash.camelcase@4.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "url": "http://allyoucanleet.com/",
+    "name": "lodash.camelcase",
+    "copyright": "Copyright jQuery Foundation and other contributors <https://jquery.org/>"
+  },
+  "long@4.0.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/dcodeIO/long.js",
+    "name": "long"
+  },
+  "lru-cache@6.0.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/node-lru-cache",
+    "name": "lru-cache",
+    "copyright": "Copyright (c) Isaac Z. Schlueter and Contributors"
+  },
+  "material-design-lite@1.3.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/google/material-design-lite",
+    "name": "material-design-lite"
+  },
+  "mime@1.6.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/broofa/node-mime",
+    "url": "http://github.com/broofa",
+    "name": "mime",
+    "copyright": "Copyright (c) 2010 Benjamin Thomas, Robert Kieffer"
+  },
+  "ms@2.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/zeit/ms",
+    "name": "ms",
+    "copyright": "Copyright (c) 2016 Zeit, Inc."
+  },
+  "node-fetch@2.6.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/bitinn/node-fetch",
+    "name": "node-fetch",
+    "copyright": "Copyright (c) 2016 David Frank"
+  },
+  "node-forge@0.10.0": {
+    "licenses": "(BSD-3-Clause OR GPL-2.0)",
+    "repository": "https://github.com/digitalbazaar/forge",
+    "url": "http://digitalbazaar.com/",
+    "name": "node-forge"
+  },
+  "organ-stops@0.2.0": {
+    "licenses": "UNLICENSED",
+    "private": true,
+    "repository": "https://github.com/benjcallaghan/organ-stops",
+    "name": "organ-stops"
+  },
+  "promise-polyfill@8.1.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/taylorhakes/promise-polyfill",
+    "name": "promise-polyfill",
+    "copyright": "Copyright (c) 2014 Taylor Hakes. Copyright (c) 2014 Forbes Lindesay"
+  },
+  "protobufjs@6.10.1": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/protobufjs/protobuf.js",
+    "name": "protobufjs",
+    "copyright": "Copyright (c) 2016, Daniel Wirtz  All rights reserved."
+  },
+  "rxjs@6.6.3": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/reactivex/rxjs",
+    "name": "rxjs"
+  },
+  "safe-buffer@5.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/feross/safe-buffer",
+    "url": "http://feross.org",
+    "name": "safe-buffer",
+    "copyright": "Copyright (c) Feross Aboukhadijeh"
+  },
+  "semver@5.7.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/npm/node-semver",
+    "name": "semver",
+    "copyright": "Copyright (c) Isaac Z. Schlueter and Contributors"
+  },
+  "tslib@2.0.3": {
+    "licenses": "0BSD",
+    "repository": "https://github.com/Microsoft/tslib",
+    "name": "tslib",
+    "copyright": "Copyright (c) Microsoft Corporation."
+  },
+  "websocket-driver@0.6.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/faye/websocket-driver-node",
+    "url": "http://jcoglan.com/",
+    "name": "websocket-driver",
+    "copyright": "Copyright (c) 2010-2016 James Coglan"
+  },
+  "websocket-extensions@0.1.4": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/faye/websocket-extensions-node",
+    "url": "http://jcoglan.com/",
+    "name": "websocket-extensions",
+    "copyright": "Copyright 2014-2020 James Coglan"
+  },
+  "whatwg-fetch@2.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/github/fetch",
+    "name": "whatwg-fetch",
+    "copyright": "Copyright (c) 2014-2016 GitHub, Inc."
+  },
+  "xmlhttprequest@1.8.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/driverdan/node-XMLHttpRequest",
+    "url": "http://driverdan.com",
+    "name": "xmlhttprequest"
+  },
+  "yallist@4.0.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/yallist",
+    "url": "http://blog.izs.me/",
+    "name": "yallist",
+    "copyright": "Copyright (c) Isaac Z. Schlueter and Contributors"
+  },
+  "zone.js@0.10.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/angular/angular",
+    "name": "zone.js",
+    "copyright": "Copyright (c) 2010-2020 Google LLC. http://angular.io/license"
+  }
+}

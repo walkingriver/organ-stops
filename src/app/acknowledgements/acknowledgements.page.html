@@ -6,12 +6,12 @@
 
 <ion-content>
   <ion-list>
-    <ion-list-header>This application makes use of the following third-party libraries</ion-list-header>
-    <ion-item *ngFor="let license of licenses$ | async" [href]="license.url || license.repository" target="_blank">
+    <ion-list-header class="ion-text-wrapp">This application makes use of the following third-party libraries</ion-list-header>
+    <ion-item *ngFor="let license of licenses | keyvalue" [href]="license.value.url || license.value.repository" target="_blank">
       <ion-label>
-        <h2>{{ license.name }}</h2>
-        <p>Licensed under {{ license.licenses }}</p>
-        <p>{{ license.copyright }}</p>
+        <h2>{{ license.value.name }}</h2>
+        <p>Licensed under {{ license.value.licenses }}</p>
+        <p>{{ license.value.copyright }}</p>
       </ion-label>
     </ion-item>
   </ion-list>

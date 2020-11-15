@@ -49,6 +49,15 @@
           >
             Customize
           </ion-button>
+          <ion-button
+            *ngIf="arrangement.value.user.id === (user$|async)?.uid"
+            expand="block"
+            color="danger"
+            class="ion-margin-horizontal"
+            (click)="remove(arrangement)"
+          >
+            Delete
+          </ion-button>
         </ion-list>
       </ion-slide>
     </ion-slides>

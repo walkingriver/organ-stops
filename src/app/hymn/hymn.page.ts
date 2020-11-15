@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { ActivatedRoute } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { defer, Observable, zip } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { EditArrangementPage } from '../edit-arrangement/edit-arrangement.page';
@@ -23,7 +23,8 @@ export class HymnPage {
     private db: AngularFireDatabase,
     auth: AngularFireAuth,
     route: ActivatedRoute,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private alertController: AlertController
   ) {
     this.hymnKey$ = route.params.pipe(map((params) => params.key));
     this.user$ = auth.user;
@@ -68,6 +69,38 @@ export class HymnPage {
           name: `${names[0]} ${names[names.length - 1][0]}.`,
         };
         this.db.list(`/hymns/${hymnKey}/arrangements`).push(data);
+      }
+    });
+  }
+
+  remove(arrangement: { key: string; value: Arrangement }) {
+    const role$ = defer(async () => {
+      const alert = await this.alertController.create({
+        header: 'Are you sure?',
+        message:
+          'Deleting the arrangement prevents other users from seeing it. This action is irreversible.',
+        buttons: [
+          {
+            text: 'No',
+            role: 'cancel',
+          },
+          {
+            text: 'Yes, delete it!',
+            role: 'delete'
+          },
+        ],
+      });
+      await alert.present();
+
+      const { role } = await alert.onDidDismiss();
+      return role;
+    });
+
+    zip(role$, this.hymnKey$).subscribe(([role, hymnKey]) => {
+      if (role === 'delete') {
+        this.db
+          .object(`/hymns/${hymnKey}/arrangements/${arrangement.key}`)
+          .remove();
       }
     });
   }

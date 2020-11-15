@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { AngularFireDatabase, SnapshotAction } from '@angular/fire/database';
 import { IonSegment, ModalController } from '@ionic/angular';
-import { defer, fromEvent, Observable, zip } from 'rxjs';
-import { map, startWith, switchMap } from 'rxjs/operators';
+import { defer, Observable, zip } from 'rxjs';
+import { first, map, startWith, switchMap } from 'rxjs/operators';
 import { EditArrangementPage } from '../edit-arrangement/edit-arrangement.page';
 import { Arrangement, Hymn } from '../hymn';
 import firebase from 'firebase/app';
@@ -15,7 +15,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['songs.page.scss'],
 })
 export class SongsPage implements AfterViewInit {
-  @ViewChild(IonSegment, { read: ElementRef }) sortSegment: ElementRef;
+  @ViewChild(IonSegment) sortSegment: IonSegment;
   hymns$: Observable<SnapshotAction<Hymn>[]>;
   user$: Observable<firebase.User>;
 
@@ -28,10 +28,7 @@ export class SongsPage implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.hymns$ = fromEvent<CustomEvent>(
-      this.sortSegment.nativeElement,
-      'ionChange'
-    ).pipe(
+    this.hymns$ = this.sortSegment.ionChange.pipe(
       map((event) => event.detail.value),
       startWith('number'),
       switchMap((sortBy) =>
@@ -67,10 +64,30 @@ export class SongsPage implements AfterViewInit {
 
     zip(data$, this.user$).subscribe(async ([data, user]) => {
       if (data) {
-        data.arrangement.user = { id: user.uid, name: user.displayName };
+        const names = user.displayName.split(' ');
+        data.arrangement.user = {
+          id: user.uid,
+          name: `${names[0]} ${names[names.length - 1][0]}.`,
+        };
         const hymn = await this.db.list('/hymns').push(data.hymn);
         await hymn.child('/arrangements').push(data.arrangement);
       }
+    });
+  }
+
+  updateNames() {
+    this.db.list('/hymns').snapshotChanges().pipe(
+      first(),
+      switchMap(list => list)
+    ).subscribe(hymn => {
+      hymn.payload.child('/arrangements').forEach(arrangement => {
+        const userNameNode = arrangement.child('/user/name');
+        const names = userNameNode.val().split(' ');
+        const maskedName = `${names[0]} ${names[names.length - 1][0]}.`;
+        userNameNode.ref.set(maskedName);
+        console.log(maskedName);
+      });
+      console.log('Done');
     });
   }
 }

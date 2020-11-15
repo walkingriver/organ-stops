@@ -57,12 +57,16 @@ export class HymnPage {
     });
 
     zip(data$, this.user$, this.hymnKey$).subscribe(([data, user, hymnKey]) => {
-      if (data && data.user.id === user.uid) {
+      if (data?.user.id === user.uid) {
         this.db
           .object(`/hymns/${hymnKey}/arrangements/${arrangement.key}`)
           .set(data);
       } else if (data) {
-        data.user = { id: user.uid, name: user.displayName };
+        const names = user.displayName.split(' ');
+        data.user = {
+          id: user.uid,
+          name: `${names[0]} ${names[names.length - 1][0]}.`,
+        };
         this.db.list(`/hymns/${hymnKey}/arrangements`).push(data);
       }
     });

@@ -6,8 +6,14 @@
 
 <ion-content>
   <ion-list>
-    <ion-list-header class="ion-text-wrapp">This application makes use of the following third-party libraries</ion-list-header>
-    <ion-item *ngFor="let license of licenses | keyvalue" [href]="license.value.url || license.value.repository" target="_blank">
+    <ion-list-header class="ion-text-wrap">
+      This application makes use of the following third-party libraries
+    </ion-list-header>
+    <ion-item
+      *ngFor="let license of licenses | keyvalue"
+      [href]="license.value.url || license.value.repository"
+      target="_blank"
+    >
       <ion-label>
         <h2>{{ license.value.name }}</h2>
         <p>Licensed under {{ license.value.licenses }}</p>

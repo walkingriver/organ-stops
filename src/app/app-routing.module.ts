@@ -30,6 +30,13 @@ const routes: Routes = [
       import('./user/user.module').then((m) => m.UserPageModule),
   },
   {
+    path: 'edit',
+    loadChildren: () =>
+      import('./edit-arrangement/edit-arrangement.module').then(
+        (m) => m.EditArrangementPageModule
+      ),
+  },
+  {
     path: '',
     redirectTo: 'songs',
     pathMatch: 'full',

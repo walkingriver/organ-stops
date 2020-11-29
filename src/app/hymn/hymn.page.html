@@ -2,7 +2,7 @@
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-back-button defaultHref="/tabs/songs"></ion-back-button>
+        <ion-back-button defaultHref="/songs"></ion-back-button>
       </ion-buttons>
       <ion-title>{{ hymn.title }}</ion-title>
     </ion-toolbar>
@@ -45,7 +45,7 @@
           <ion-button
             expand="block"
             class="ion-margin-horizontal"
-            (click)="customize(hymn, arrangement)"
+            [routerLink]="['/edit', {hymnKey: hymnKey$ | async, arrangementKey: arrangement.key}]"
           >
             Customize
           </ion-button>

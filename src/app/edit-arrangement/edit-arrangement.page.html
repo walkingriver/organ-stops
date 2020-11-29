@@ -1,64 +1,66 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="secondary">
-      <ion-button (click)="cancel()">Cancel</ion-button>
-    </ion-buttons>
-    <ion-title>Edit Stops</ion-title>
-    <ion-buttons slot="primary">
-      <ion-button (click)="save()">Save</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<ng-container *ngIf="edit$ | async as edit">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/songs"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Edit Stops</ion-title>
+      <ion-buttons slot="primary">
+        <ion-button (click)="save(edit)">Save</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-label position="floating">Number</ion-label>
-      <ion-input
-        type="number"
-        [(ngModel)]="hymn.number"
-        [readonly]="readonly"
-      ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Title</ion-label>
-      <ion-input
-        type="text"
-        [(ngModel)]="hymn.title"
-        [readonly]="readonly"
-      ></ion-input>
-    </ion-item>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Number</ion-label>
+        <ion-input
+          type="number"
+          [(ngModel)]="edit.hymn.number"
+          [readonly]="edit.readonly"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Title</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="edit.hymn.title"
+          [readonly]="edit.readonly"
+        ></ion-input>
+      </ion-item>
 
-    <ion-item-divider [sticky]="true">
-      <ion-label>Pedal</ion-label>
-    </ion-item-divider>
-    <ion-item *ngFor="let stop of arrangement.pedal">
-      <ion-label>{{ stop.name }}</ion-label>
-      <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
-    </ion-item>
+      <ion-item-divider [sticky]="true">
+        <ion-label>Pedal</ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let stop of edit.arrangement.pedal">
+        <ion-label>{{ stop.name }}</ion-label>
+        <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
+      </ion-item>
 
-    <ion-item-divider [sticky]="true">
-      <ion-label>Swell</ion-label>
-    </ion-item-divider>
-    <ion-item *ngFor="let stop of arrangement.swell">
-      <ion-label>{{ stop.name }}</ion-label>
-      <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
-    </ion-item>
+      <ion-item-divider [sticky]="true">
+        <ion-label>Swell</ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let stop of edit.arrangement.swell">
+        <ion-label>{{ stop.name }}</ion-label>
+        <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
+      </ion-item>
 
-    <ion-item-divider [sticky]="true">
-      <ion-label>Great</ion-label>
-    </ion-item-divider>
-    <ion-item *ngFor="let stop of arrangement.great">
-      <ion-label>{{ stop.name }}</ion-label>
-      <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
-    </ion-item>
+      <ion-item-divider [sticky]="true">
+        <ion-label>Great</ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let stop of edit.arrangement.great">
+        <ion-label>{{ stop.name }}</ion-label>
+        <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
+      </ion-item>
 
-    <ion-item-divider [sticky]="true">
-      <ion-label>General</ion-label>
-    </ion-item-divider>
-    <ion-item *ngFor="let stop of arrangement.general">
-      <ion-label>{{ stop.name }}</ion-label>
-      <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
-    </ion-item>
-  </ion-list>
-</ion-content>
+      <ion-item-divider [sticky]="true">
+        <ion-label>General</ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let stop of edit.arrangement.general">
+        <ion-label>{{ stop.name }}</ion-label>
+        <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ng-container>

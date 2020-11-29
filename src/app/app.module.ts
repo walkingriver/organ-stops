@@ -14,6 +14,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FirebaseUIModule } from './firebaseui-angular/firebaseui-angular-library.module';
 import firebase from 'firebase/app';
 
+let globalRouter: Router;
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +32,9 @@ import firebase from 'firebase/app';
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         firebase.auth.TwitterAuthProvider.PROVIDER_ID,
       ],
+      tosUrl: () => globalRouter.navigate(['/terms']),
+      privacyPolicyUrl: () => globalRouter.navigate(['/privacy']),
+      signInSuccessUrl: '/user', // Will be overridden on some requests
     }),
   ],
   providers: [
@@ -41,4 +45,7 @@ import firebase from 'firebase/app';
   bootstrap: [AppComponent],
 })
 export class AppModule {
+  constructor(router: Router) {
+    globalRouter = router;
+  }
 }

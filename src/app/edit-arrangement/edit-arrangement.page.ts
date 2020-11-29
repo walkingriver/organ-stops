@@ -6,7 +6,12 @@ import { Observable, zip } from 'rxjs';
 import { map, switchMap, take } from 'rxjs/operators';
 import { Arrangement, Hymn, emptyArrangement, emptyHymn } from '../hymn';
 
-type EditHymn = { hymn: Hymn; arrangement: Arrangement; readonly: boolean };
+type EditHymn = {
+  key: string;
+  hymn: Hymn;
+  arrangement: Arrangement;
+  readonly: boolean;
+};
 
 @Component({
   selector: 'app-edit-arrangement',
@@ -30,6 +35,7 @@ export class EditArrangementPage {
             map(
               (hymn) =>
                 ({
+                  key: params.get('hymnKey'),
                   hymn: hymn ?? { ...emptyHymn },
                   arrangement: hymn?.arrangements[
                     params.get('arrangementKey')

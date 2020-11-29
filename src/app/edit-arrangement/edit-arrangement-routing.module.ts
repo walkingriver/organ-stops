@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { EditArrangementPage } from './edit-arrangement.page';
+import { AuthGuard } from './auth-guard.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: EditArrangementPage,
-    ...canActivate(() => redirectUnauthorizedTo(['/user'])),
+    canActivate: [AuthGuard]
   },
 ];
 

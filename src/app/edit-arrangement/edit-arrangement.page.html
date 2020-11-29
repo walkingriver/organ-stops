@@ -2,7 +2,7 @@
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-back-button defaultHref="/songs"></ion-back-button>
+        <ion-back-button [defaultHref]="edit.key ? ['/songs', edit.key] : '/songs'"></ion-back-button>
       </ion-buttons>
       <ion-title>Edit Stops</ion-title>
       <ion-buttons slot="primary">

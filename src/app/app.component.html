@@ -1,3 +1,59 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" contentId="main">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Organ Stops</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item detail routerLink="songs" routerDirection="root">
+            All Songs
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ng-container *ngIf="auth.user | async as user; else signIn">
+          <ion-item-divider>
+            <ion-label>Signed in as {{ user.displayName }}</ion-label>
+          </ion-item-divider>
+          <ion-menu-toggle>
+            <ion-item (click)="signOut()">Sign Out</ion-item>
+          </ion-menu-toggle>
+        </ng-container>
+        <ng-template #signIn>
+          <ion-item-divider>
+            <ion-label>Not Signed In</ion-label>
+          </ion-item-divider>
+          <ion-menu-toggle>
+            <ion-item detail routerLink="user" routerDirection="root">
+              Sign In
+            </ion-item>
+          </ion-menu-toggle>
+        </ng-template>
+        
+        <ion-item-divider>
+          <ion-label>About Organ Stops</ion-label>
+        </ion-item-divider>
+        <ion-menu-toggle>
+          <ion-item detail routerLink="acknowledgements" routerDirection="root">
+            Acknowledgements
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item detail routerLink="terms" routerDirection="root">
+            Terms of Service
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item detail routerLink="privacy" routerDirection="root">
+            Privacy Policy
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

@@ -26,3 +26,10 @@
 @import '~@ionic/angular/css/flex-utils.css';
 
 @import '~firebaseui/dist/firebaseui.css';
+
+// Only display the menu button on top-level pages.
+.can-go-back {
+  ion-menu-button {
+    display: none;
+  }
+}

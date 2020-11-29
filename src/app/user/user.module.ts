@@ -15,8 +15,8 @@ let globalRouter: Router;
     CommonModule,
     UserPageRoutingModule,
     FirebaseUIModule.forFeature({
-      tosUrl: () => globalRouter.navigate(['/tabs/user/terms']),
-      privacyPolicyUrl: () => globalRouter.navigate(['/tabs/user/privacy']),
+      tosUrl: () => globalRouter.navigate(['/terms']),
+      privacyPolicyUrl: () => globalRouter.navigate(['/privacy']),
     }),
   ],
   declarations: [UserPage],

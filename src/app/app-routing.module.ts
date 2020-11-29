@@ -3,10 +3,37 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'songs',
     loadChildren: () =>
-      import('./tabs/tabs.module').then((m) => m.TabsPageModule),
-  }
+      import('./songs/songs.module').then((m) => m.SongsPageModule),
+  },
+  {
+    path: 'terms',
+    loadChildren: () =>
+      import('./terms/terms.module').then((m) => m.TermsPageModule),
+  },
+  {
+    path: 'privacy',
+    loadChildren: () =>
+      import('./privacy/privacy.module').then((m) => m.PrivacyPageModule),
+  },
+  {
+    path: 'acknowledgements',
+    loadChildren: () =>
+      import('./acknowledgements/acknowledgements.module').then(
+        (m) => m.AcknowledgementsPageModule
+      ),
+  },
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('./user/user.module').then((m) => m.UserPageModule),
+  },
+  {
+    path: '',
+    redirectTo: 'songs',
+    pathMatch: 'full',
+  },
 ];
 @NgModule({
   imports: [

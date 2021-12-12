@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FirebaseUIModule } from './firebaseui-angular/firebaseui-angular-library.module';
 import firebase from 'firebase/app';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 let globalRouter: Router;
 
@@ -32,6 +33,12 @@ let globalRouter: Router;
             tosUrl: () => globalRouter.navigate(['/terms']),
             privacyPolicyUrl: () => globalRouter.navigate(['/privacy']),
             signInSuccessUrl: '/user', // Will be overridden on some requests
+        }),
+        ServiceWorkerModule.register('ngsw-worker.js', {
+          enabled: environment.production,
+          // Register the ServiceWorker as soon as the app is stable
+          // or after 30 seconds (whichever comes first).
+          registrationStrategy: 'registerWhenStable:30000'
         }),
     ],
     providers: [

@@ -1,43 +1,48 @@
 {
-  "@angular/common@10.2.2": {
+  "@angular/common@13.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/angular/angular",
     "name": "@angular/common"
   },
-  "@angular/compiler@10.2.2": {
+  "@angular/compiler@13.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/angular/angular",
     "name": "@angular/compiler"
   },
-  "@angular/core@10.2.2": {
+  "@angular/core@13.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/angular/angular",
     "name": "@angular/core"
   },
-  "@angular/fire@6.0.4": {
+  "@angular/fire@6.1.5": {
     "licenses": "MIT",
-    "repository": "https://github.com/angular/angularfire2",
+    "repository": "https://github.com/angular/angularfire",
     "name": "@angular/fire"
   },
-  "@angular/forms@10.2.2": {
+  "@angular/forms@13.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/angular/angular",
     "name": "@angular/forms"
   },
-  "@angular/platform-browser-dynamic@10.2.2": {
+  "@angular/platform-browser-dynamic@13.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/angular/angular",
     "name": "@angular/platform-browser-dynamic"
   },
-  "@angular/platform-browser@10.2.2": {
+  "@angular/platform-browser@13.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/angular/angular",
     "name": "@angular/platform-browser"
   },
-  "@angular/router@10.2.2": {
+  "@angular/router@13.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/angular/angular",
     "name": "@angular/router"
+  },
+  "@angular/service-worker@13.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/angular/angular",
+    "name": "@angular/service-worker"
   },
   "@capacitor/core@2.4.2": {
     "licenses": "MIT",
@@ -224,27 +229,12 @@
     "repository": "https://github.com/grpc/grpc-node",
     "name": "@grpc/proto-loader"
   },
-  "@ionic-native/core@5.29.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/ionic-team/ionic-native",
-    "name": "@ionic-native/core"
-  },
-  "@ionic-native/splash-screen@5.29.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/ionic-team/ionic-native",
-    "name": "@ionic-native/splash-screen"
-  },
-  "@ionic-native/status-bar@5.29.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/ionic-team/ionic-native",
-    "name": "@ionic-native/status-bar"
-  },
-  "@ionic/angular@5.4.3": {
+  "@ionic/angular@5.9.2": {
     "licenses": "MIT",
     "repository": "https://github.com/ionic-team/ionic",
     "name": "@ionic/angular"
   },
-  "@ionic/core@5.4.3": {
+  "@ionic/core@5.9.2": {
     "licenses": "MIT",
     "repository": "https://github.com/ionic-team/ionic",
     "name": "@ionic/core",
@@ -310,10 +300,11 @@
     "name": "@protobufjs/utf8",
     "copyright": "Copyright (c) 2016, Daniel Wirtz  All rights reserved."
   },
-  "@types/cordova@0.0.34": {
+  "@stencil/core@2.11.0": {
     "licenses": "MIT",
-    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
-    "name": "@types/cordova"
+    "repository": "https://github.com/ionic-team/stencil",
+    "name": "@stencil/core",
+    "copyright": "Copyright (c) 2019-present Drifty Co."
   },
   "@types/long@4.0.1": {
     "licenses": "MIT",
@@ -364,11 +355,11 @@
     "name": "buffer-equal-constant-time",
     "copyright": "Copyright (c) 2013, GoInstant Inc., a salesforce.com company. All rights reserved."
   },
-  "core-js@3.6.4": {
+  "core-js@3.19.3": {
     "licenses": "MIT",
     "repository": "https://github.com/zloirock/core-js",
     "name": "core-js",
-    "copyright": "Copyright (c) 2014-2020 Denis Pushkarev"
+    "copyright": "Copyright (c) 2014-2021 Denis Pushkarev"
   },
   "debug@4.2.0": {
     "licenses": "MIT",
@@ -422,12 +413,12 @@
     "repository": "https://github.com/samthor/fast-text-encoding",
     "name": "fast-text-encoding"
   },
-  "faye-websocket@0.10.0": {
-    "licenses": "MIT",
+  "faye-websocket@0.11.4": {
+    "licenses": "Apache-2.0",
     "repository": "https://github.com/faye/faye-websocket-node",
     "url": "http://jcoglan.com/",
     "name": "faye-websocket",
-    "copyright": "Copyright (c) 2010-2015 James Coglan"
+    "copyright": "Copyright 2010-2021 James Coglan"
   },
   "firebase@8.0.1": {
     "licenses": "Apache-2.0",
@@ -479,19 +470,19 @@
     "repository": "https://github.com/jakearchibald/indexeddb-promised",
     "name": "idb"
   },
-  "ionicons@5.2.3": {
+  "ionicons@5.5.4": {
     "licenses": "MIT",
     "repository": "https://github.com/ionic-team/ionicons",
     "url": "https://twitter.com/benjsperry",
     "name": "ionicons",
     "copyright": "Copyright (c) 2015-present Ionic (http://ionic.io/)"
   },
-  "is-stream@1.1.0": {
+  "is-stream@2.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/sindresorhus/is-stream",
-    "url": "sindresorhus.com",
+    "url": "https://sindresorhus.com",
     "name": "is-stream",
-    "copyright": "Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)"
+    "copyright": "Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)"
   },
   "json-bigint@1.0.0": {
     "licenses": "MIT",
@@ -634,10 +625,10 @@
     "name": "yallist",
     "copyright": "Copyright (c) Isaac Z. Schlueter and Contributors"
   },
-  "zone.js@0.10.3": {
+  "zone.js@0.11.4": {
     "licenses": "MIT",
     "repository": "https://github.com/angular/angular",
     "name": "zone.js",
-    "copyright": "Copyright (c) 2010-2020 Google LLC. http://angular.io/license"
+    "copyright": "Copyright (c) 2010-2020 Google LLC. https://angular.io/license"
   }
 }

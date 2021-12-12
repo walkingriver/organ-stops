@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {FirebaseuiAngularLibraryComponent} from './firebaseui-angular-library.component';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {Subject} from 'rxjs';
@@ -10,7 +10,7 @@ describe('FirebaseuiAngularLibraryComponent', () => {
   let fixture: ComponentFixture<FirebaseuiAngularLibraryComponent>;
   let firebaseAuthState: Subject<firebase.User>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     firebaseAuthState = new Subject();
 
     TestBed.configureTestingModule({
